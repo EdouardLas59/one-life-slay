@@ -70,3 +70,30 @@ categories = ["Action", "Fantasy", "Horror", "Comedy", "Sci-Fi", "Thriller"]
   puts "#{movie.title} created"
 end
 puts "Seeded #{Movie.count} movies"
+
+Booking.create([
+  {
+    date_start: Date.today + 1,
+    date_end: Date.today + 5,
+    total_price: 50,
+    pickup_place: "Paris Gare",
+    user: alex,
+    movie: Movie.last
+  },
+  {
+    date_start: Date.today + 10,
+    date_end: Date.today + 15,
+    total_price: 100,
+    pickup_place: "Aéroport Charles-de-Gaulle",
+    user: alex,
+    movie: Movie.find(Movie.last.id - 1)
+  },
+  {
+    date_start: Date.today + 20,
+    date_end: Date.today + 25,
+    total_price: 75,
+    pickup_place: "Lyon Part-Dieu",
+    user: alex,
+    movie: Movie.first
+  }
+])

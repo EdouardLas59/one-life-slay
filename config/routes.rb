@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 resources :users do
   member do
-    get :display_bookings
+    get :show
   end
 end
 

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-def display_bookings
+def show
   @bookings = current_user.bookings
 end
 
