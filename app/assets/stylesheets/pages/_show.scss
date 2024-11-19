@@ -1,0 +1,35 @@
+.container-show {
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+
+.movie-poster {
+	margin-top: 25px;
+	margin-left: 10px;
+	margin-bottom: 25px;
+	border-radius: 15px;
+	border-style: solid;
+	border-color: black;
+	width: 100%;
+}
+
+.movie-infos {
+	margin-top: 25px;
+	margin-right: 10px;
+	margin-bottom: 25px;
+	border-radius: 15px;
+	border-style: solid;
+	border-color: black;
+}
+
+.year-genre { 
+	display: flex;
+}
+
+.crew-rating {
+	display: flex;
+}
+i {
+	color:yellow;
+}

@@ -1,0 +1,33 @@
+<div class="container-show">
+
+	<div class="movie-poster">
+		<%= @movie.poster_url %>
+	</div>
+
+	<div class="infos">
+	<div class="movie-infos">
+		<h2><%= @movie.title %></h2>
+		<div class="year-genre">
+			<p><%= @movie.year %></p>
+			<p><%= @movie.genre %></p>
+		</div>
+		<div class="crew-rating">
+			<div class="movie-crew">
+				<p><%= @movie.director %></p>
+				<p><%= @movie.actors %></p>
+			</div>
+		<p><%= @movie.rating %> <i class="fa-solid fa-star"></i></p>
+		</div>
+	</div>
+
+	<div class="owner-infos">
+		<p>Owner: <%= @movie.user.email %></p>
+		<p><%= @movie.user.email %>'s review: <%= @movie.review %></p>
+	</div>
+	</div>
+
+	<div class="schedule">
+		<h1>SCHEDULE A INTEGRER AVEC RENDER DU BOOKING</h1>
+	</div>
+
+</div>

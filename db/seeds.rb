@@ -13,6 +13,9 @@ require "net/http"
 require "faker"
 Movie.destroy_all
 User.destroy_all
+
+User.create(email:"blabla@gmail.com", password:"password")
+
 poster_urls = [
   "https://posters.movieposterdb.com/24_06/2024/16366836/l_venom-the-last-dance-movie-poster_a982082b.jpg",
   "https://posters.movieposterdb.com/24_09/2024/28015403/l_heretic-movie-poster_5aebf7ad.jpg",
@@ -44,7 +47,7 @@ poster_urls = [
 categories = ["Action", "Fantasy", "Horror", "Comedy", "Sci-Fi", "Thriller"]
 100.times do
   title = Faker::Movie.title
-  movie = Movie.create(
+  Movie.create!(
     title: title,
     review: [
       "#{Faker::Movie.title} follows #{Faker::Name.name}, a #{Faker::Job.title.downcase} from #{Faker::Address.city}. When they discover a secret about #{Faker::Company.name}, they must team up with #{Faker::Name.name}, a #{Faker::Job.title.downcase}, to uncover a plot that could threaten the future.",
@@ -59,8 +62,10 @@ categories = ["Action", "Fantasy", "Horror", "Comedy", "Sci-Fi", "Thriller"]
     director: Faker::Name.name,
     actors: "#{Faker::Name.name}, #{Faker::Name.name}, #{Faker::Name.name}",
     genre: categories.sample,
-    year: rand(1950..2024).round(1)
+    year: rand(1950..2024).round(1),
+    quality: "good",
+    price: 10,
+    user: User.first
   )
-  puts "#{movie.title} created"
 end
 puts "Seeded #{Movie.count} movies"
