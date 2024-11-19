@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
 
   resources :movies do
-    resources :bookings, only: [:new, :update]
+    resources :bookings, only: [:new, :create, :update]
   end
   # Defines the root path route ("/")
   # root "posts#index"
