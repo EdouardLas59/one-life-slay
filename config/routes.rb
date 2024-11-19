@@ -10,6 +10,13 @@ Rails.application.routes.draw do
 
 
 
+resources :users do
+  member do
+    get :display_bookings
+  end
+end
+
+
   resources :movies do
     resources :bookings, only: [:new, :create, :update]
   end
