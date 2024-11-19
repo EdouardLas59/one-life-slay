@@ -7,8 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require "open-uri"
+require "json"
+require "net/http"
 require "faker"
-
 Movie.destroy_all
 User.destroy_all
 poster_urls = [
@@ -56,8 +58,8 @@ categories = ["Action", "Fantasy", "Horror", "Comedy", "Sci-Fi", "Thriller"]
     rating: rand(1..10).round(1),
     director: Faker::Name.name,
     actors: "#{Faker::Name.name}, #{Faker::Name.name}, #{Faker::Name.name}",
-    category: categories.sample,
-    Year: rand(1950..2024).round(1)
+    genre: categories.sample,
+    year: rand(1950..2024).round(1)
   )
   puts "#{movie.title} created"
 end
