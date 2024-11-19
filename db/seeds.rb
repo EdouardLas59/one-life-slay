@@ -13,6 +13,11 @@ require "net/http"
 require "faker"
 Movie.destroy_all
 User.destroy_all
+
+axel = User.create(email: "axel@mail.com", password: "password")
+alex = User.create(email: "alex@mail.com", password: "password")
+math = User.create(email: "math@mail.com", password: "password")
+edouard = User.create(email: "edouard@mail.com", password: "password")
 poster_urls = [
   "https://posters.movieposterdb.com/24_06/2024/16366836/l_venom-the-last-dance-movie-poster_a982082b.jpg",
   "https://posters.movieposterdb.com/24_09/2024/28015403/l_heretic-movie-poster_5aebf7ad.jpg",
@@ -44,12 +49,12 @@ poster_urls = [
 categories = ["Action", "Fantasy", "Horror", "Comedy", "Sci-Fi", "Thriller"]
 100.times do
   title = Faker::Movie.title
-  movie = Movie.create(
+  movie = Movie.create!(
     title: title,
     review: [
       "#{Faker::Movie.title} follows #{Faker::Name.name}, a #{Faker::Job.title.downcase} from #{Faker::Address.city}. When they discover a secret about #{Faker::Company.name}, they must team up with #{Faker::Name.name}, a #{Faker::Job.title.downcase}, to uncover a plot that could threaten the future.",
       "#{Faker::Movie.title} tells the story of #{Faker::Name.name}, a #{Faker::Job.title.downcase} in #{Faker::Address.city}. When their investigation into #{Faker::Company.name} leads them to a web of lies, they uncover a conspiracy that forces them to make a life-changing decision.",
-      "#{Faker::Movie.title} is about #{Faker::Name.name}, a #{Faker::Job.title.downcase} who uncovers a dark secret hidden within #{Faker::Company.name}. Alongside #{Faker::Name.name}, a #{Faker::Job.title.downcase}, they must expose the truth before it’s buried forever.",
+      "#{Faker::Movie.title} is about #{Faker::Name.name}, a #{Faker::Job.title.downcase} who uncovers a dark secret hidden within #{Faker::Company.name}. Alongside #{Faker::Name.name}, a #{Faker::Job.title.downcase}, they must expose the truth before it's buried forever.",
       "#{Faker::Movie.title} follows #{Faker::Name.name}, a #{Faker::Job.title.downcase} who stumbles upon a dangerous plot involving #{Faker::Company.name}. As they race against time, they uncover a conspiracy that could alter history. With the help of #{Faker::Name.name}, a #{Faker::Job.title.downcase}, they try to stop the forces behind it.",
       "#{Faker::Movie.title} tells the journey of #{Faker::Name.name}, a #{Faker::Job.title.downcase} from #{Faker::Address.city}. When they discover a hidden connection between #{Faker::Company.name} and a powerful organization, they must decide if they will expose the truth or protect their own life.",
       "#{Faker::Movie.title} follows #{Faker::Name.name}, a #{Faker::Job.title.downcase} who uncovers a dangerous secret within #{Faker::Company.name}. Now, with the help of #{Faker::Name.name}, a #{Faker::Job.title.downcase}, they must fight against a corrupt system to bring the truth to light."
@@ -59,7 +64,8 @@ categories = ["Action", "Fantasy", "Horror", "Comedy", "Sci-Fi", "Thriller"]
     director: Faker::Name.name,
     actors: "#{Faker::Name.name}, #{Faker::Name.name}, #{Faker::Name.name}",
     genre: categories.sample,
-    year: rand(1950..2024).round(1)
+    year: rand(1950..2024).round(1),
+    user: User.last
   )
   puts "#{movie.title} created"
 end

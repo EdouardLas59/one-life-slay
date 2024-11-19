@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:show_booking]
 
+def display_bookings
+  @bookings = current_user.bookings
+end
 
-
-    def set_user
-      @user = User.find(params[:id])
-    end
-  end
+end

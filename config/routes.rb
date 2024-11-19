@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :movies
 
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+resources :users do
+  member do
+    get :display_bookings
+  end
 end
-resources :users
+end
