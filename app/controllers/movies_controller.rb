@@ -12,6 +12,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @booking = Booking.new
   end
 
 end
