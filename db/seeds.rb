@@ -49,14 +49,14 @@ poster_urls = [
   "https://posters.movieposterdb.com/10_12/2002/322802/l_322802_b0849c48.jpg",
 ]
 categories = ["Action", "Fantasy", "Horror", "Comedy", "Sci-Fi", "Thriller"]
-100.times do
+24.times do
   title = Faker::Movie.title
   movie = Movie.create!(
     title: title,
     review: [
       "#{Faker::Movie.title} follows #{Faker::Name.name}, a #{Faker::Job.title.downcase} from #{Faker::Address.city}. When they discover a secret about #{Faker::Company.name}, they must team up with #{Faker::Name.name}, a #{Faker::Job.title.downcase}, to uncover a plot that could threaten the future.",
       "#{Faker::Movie.title} tells the story of #{Faker::Name.name}, a #{Faker::Job.title.downcase} in #{Faker::Address.city}. When their investigation into #{Faker::Company.name} leads them to a web of lies, they uncover a conspiracy that forces them to make a life-changing decision.",
-      "#{Faker::Movie.title} is about #{Faker::Name.name}, a #{Faker::Job.title.downcase} who uncovers a dark secret hidden within #{Faker::Company.name}. Alongside #{Faker::Name.name}, a #{Faker::Job.title.downcase}, they must expose the truth before it’s buried forever.",
+      "#{Faker::Movie.title} is about #{Faker::Name.name}, a #{Faker::Job.title.downcase} who uncovers a dark secret hidden within #{Faker::Company.name}. Alongside #{Faker::Name.name}, a #{Faker::Job.title.downcase}, they must expose the truth before it's buried forever.",
       "#{Faker::Movie.title} follows #{Faker::Name.name}, a #{Faker::Job.title.downcase} who stumbles upon a dangerous plot involving #{Faker::Company.name}. As they race against time, they uncover a conspiracy that could alter history. With the help of #{Faker::Name.name}, a #{Faker::Job.title.downcase}, they try to stop the forces behind it.",
       "#{Faker::Movie.title} tells the journey of #{Faker::Name.name}, a #{Faker::Job.title.downcase} from #{Faker::Address.city}. When they discover a hidden connection between #{Faker::Company.name} and a powerful organization, they must decide if they will expose the truth or protect their own life.",
       "#{Faker::Movie.title} follows #{Faker::Name.name}, a #{Faker::Job.title.downcase} who uncovers a dangerous secret within #{Faker::Company.name}. Now, with the help of #{Faker::Name.name}, a #{Faker::Job.title.downcase}, they must fight against a corrupt system to bring the truth to light."
@@ -72,3 +72,30 @@ categories = ["Action", "Fantasy", "Horror", "Comedy", "Sci-Fi", "Thriller"]
   puts "#{movie.title} created"
 end
 puts "Seeded #{Movie.count} movies"
+
+Booking.create([
+  {
+    date_start: Date.today - 1,
+    date_end: Date.today + 5,
+    total_price: 50,
+    pickup_place: "Paris Gare",
+    user: alex,
+    movie: Movie.last
+  },
+  {
+    date_start: Date.today - 10,
+    date_end: Date.today + 15,
+    total_price: 100,
+    pickup_place: "Aéroport Charles-de-Gaulle",
+    user: alex,
+    movie: Movie.find(Movie.last.id - 1)
+  },
+  {
+    date_start: Date.today - 20,
+    date_end: Date.today + 25,
+    total_price: 75,
+    pickup_place: "Lyon Part-Dieu",
+    user: alex,
+    movie: Movie.first
+  }
+])

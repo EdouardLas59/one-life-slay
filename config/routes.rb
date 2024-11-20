@@ -15,9 +15,17 @@ Rails.application.routes.draw do
   end
 
 
+resources :users do
+  member do
+    get :show
+  end
+end
+
+
   resources :movies do
     resources :bookings, only: [:new, :create, :update, :comfirm]
   end
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
