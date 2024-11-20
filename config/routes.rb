@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   get '/recherche', to: 'movies#search', as: 'search_movies'
 
-resources :dashboard
+  resources :dashboard
 
-  resources :movies, except: :index do 
+  resources :movies, except: :index do
     resources :bookings, only: [:new, :create, :update, :comfirm]
   end
   # Defines the root path route ("/")
