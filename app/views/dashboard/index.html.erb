@@ -1,39 +1,54 @@
 <div class="container">
-  <h1> My Profil </h1>
+ <div style="text-align: center; color: white"> <h1> My Profil </h1> </div>
 
-  <h2> Movies I own and available for rent</h2>
-  <ul>
-    <% current_user.movies.each do |movie| %>
-      <% if movie.bookings.size == 0 %>
-        <li>
-          <%= image_tag(movie.poster_url, alt: "#{movie.title} poster", class: "poster") if movie.poster_url.present? %>
-          <%= movie.title %> - <%= movie.year %> - <%= movie.genre %>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
-
-
-  <h2> Movies I own which I am renting</h2>
-  <ul>
-    <% current_user.movies.each do |movie| %>
-      <% if movie.bookings.size > 0 %>
-        <li>
-          <%= image_tag(movie.poster_url, alt: "#{movie.title} poster", class: "poster") if movie.poster_url.present? %>
-          <%= movie.title %> - rented from <%= movie.bookings.first.date_start %> to <%= movie.bookings.first.date_end %>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
-</div>
-
-  <h2> Movies I have rented</h2>
-  <ul>
-    <% current_user.bookings.each do |booking| %>
-      <li>
-        <%= image_tag(booking.movie.poster_url, alt: "#{booking.movie.title} poster", class: "poster") if booking.movie.poster_url.present? %>
-        <%= booking.movie.title %> - rented from <%= booking.date_start %> to <%= booking.date_end %>
+<h2>Movies I own and available for rent</h2>
+<ul class="movie-listdash">
+  <% current_user.movies.each do |movie| %>
+    <% if movie.bookings.size == 0 %>
+      <li class="movie-itemdash">
+        <div class="movie-posterdash">
+          <%= image_tag(movie.poster_url, alt: "#{movie.title} poster", class: "posterdash") if movie.poster_url.present? %>
+        </div>
+        <div class="movie-detailsdash">
+          <p><strong>Title:</strong> <%= movie.title %></p>
+          <p><strong>Year:</strong> <%= movie.year %></p>
+          <p><strong>Genre:</strong> <%= movie.genre %></p>
+        </div>
       </li>
     <% end %>
-  </ul>
+  <% end %>
+</ul>
 
+<h2>Movies I own that I am renting</h2>
+<ul class="movie-listdash">
+  <% current_user.movies.each do |movie| %>
+    <% if movie.bookings.size > 0 %>
+      <li class="movie-itemdash">
+        <div class="movie-posterdash">
+          <%= image_tag(movie.poster_url, alt: "#{movie.title} poster", class: "posterdash") if movie.poster_url.present? %>
+        </div>
+        <div class="movie-detailsdash">
+          <p><strong>Title:</strong> <%= movie.title %></p>
+          <p><strong>Rented From:</strong> <%= movie.bookings.first.date_start %> to <%= movie.bookings.first.date_end %></p>
+        </div>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<h2>Movies I have rented</h2>
+<ul class="movie-listdash">
+  <% current_user.bookings.each do |booking| %>
+    <li class="movie-itemdash">
+      <div class="movie-posterdash">
+        <%= image_tag(booking.movie.poster_url, alt: "#{booking.movie.title} poster", class: "posterdash") if booking.movie.poster_url.present? %>
+      </div>
+      <div class="movie-detailsdash">
+        <p><strong>Title:</strong> <%= booking.movie.title %></p>
+        <p><strong>Review:</strong> <%= booking.movie.review %></p>
+        <p><strong>Rented From:</strong> <%= booking.date_start %> to <%= booking.date_end %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>
+</div>
