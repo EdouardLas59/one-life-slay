@@ -1,7 +1,7 @@
 <div class="container">
-  <h1> My profil </h1>
+  <h1> My Profil </h1>
 
-  <h2>Available Movies</h2>
+  <h2> Movies I own and available for rent</h2>
   <ul>
     <% current_user.movies.each do |movie| %>
       <% if movie.bookings.size == 0 %>
@@ -13,20 +13,21 @@
     <% end %>
   </ul>
 
-  <h2>Booking Renting</h2>
+
+  <h2> Movies I own which I am renting</h2>
   <ul>
     <% current_user.movies.each do |movie| %>
       <% if movie.bookings.size > 0 %>
         <li>
           <%= image_tag(movie.poster_url, alt: "#{movie.title} poster", class: "poster") if movie.poster_url.present? %>
-          <%= movie.title %> - <%= movie.year %> - <%= movie.genre %>
-          rented from <%= movie.bookings.date_start %> to <%= movie.bookings.date_end %>
+          <%= movie.title %> - rented from <%= movie.bookings.first.date_start %> to <%= movie.bookings.first.date_end %>
         </li>
       <% end %>
     <% end %>
   </ul>
+</div>
 
-  <h2>Current Renting</h2>
+  <h2> Movies I have rented</h2>
   <ul>
     <% current_user.bookings.each do |booking| %>
       <li>
@@ -35,4 +36,4 @@
       </li>
     <% end %>
   </ul>
-</div>
+
