@@ -1,6 +1,6 @@
 
 body {
-	background-color: #5D0E41;
+  background-color: black;
 	color: #FF204E;
 	margin: 0;
 	padding: 0;
@@ -69,7 +69,7 @@ body {
 .movie-title {
 	display: inline-block;
 	text-align: center;
-	background-color: #00224D;
+	background-color: black;
 	color: #FF204E;
 	padding: 7px 7px;
 	border-radius: 7px;
@@ -86,7 +86,7 @@ body {
 }
 
 i {
-	color:yellow;
+	color:#ffff00;
 	animation-name: rotation_rating;
 	animation-timing-function: ease-in-out;
 	animation-duration: 1.7s;
@@ -151,11 +151,6 @@ strong {
 	border-color: #00224D;
 	color: #00224D;
 }
-
-
-
-
-
 
 .movie-button {
 	display: flex;
