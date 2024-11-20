@@ -1,0 +1,19 @@
+<h1>Results for: "<%= @query %>"</h1>
+
+<% if @movies.any? %>
+  <ul class="card-movie">
+    <% @movies.each do |movie| %>
+      <li>
+          <img src="<%= movie.poster_url %>" alt="<%= movie.title %>" class="img-poster">
+          <div class="movie-title">
+            <h3><%= movie.title %> (<%= movie.year %>)</h3>
+            <div class="movie-rating">
+              <h3><%= movie.rating %><i class="fa-solid fa-star" style="color: #FFD43B;"></i></h3>
+            </div>
+          </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Aucun film trouvé pour "<%= @query %>".</p>
+<% end %>
