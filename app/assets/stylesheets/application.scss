@@ -20,3 +20,30 @@
   display: flex;
   justify-content: space-between;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.new-movie-container {
+  position: relative;
+  z-index: 10; /* S'assure que le formulaire reste au-dessus de l'arrière-plan */
+  padding: 20px;
+  background: black;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.new-form-imput {
+  margin-bottom: 20px;
+}
+
+
+.h1creat{
+  text-align: center;
+  color: white;
+  text-shadow: 5px 5px 5px black;
+}

@@ -1,4 +1,7 @@
-boody {
+
+body {
+	background-color: #5D0E41;
+	color: #FF204E;
 	margin: 0;
 	padding: 0;
 	height: 100%;
@@ -72,7 +75,7 @@ boody {
 	border-radius: 7px;
 }
 
-.year-genre { 
+.year-genre {
 	display: flex;
 	justify-content: space-between;
 }
@@ -88,7 +91,7 @@ i {
 	animation-timing-function: ease-in-out;
 	animation-duration: 1.7s;
 	animation-iteration-count: 1;
-	  
+
 	@keyframes rotation_rating {
 		0% {
 		  transform: rotate(-180deg);
@@ -127,7 +130,7 @@ p {
 }
 
 strong {
-	color: #00224D;	
+	color: #00224D;
 }
 
 .button {
@@ -149,10 +152,16 @@ strong {
 	color: #00224D;
 }
 
+
+
+
+
+
 .movie-button {
 	display: flex;
 	justify-content: center;
 }
+
 
 .movie-map {
 	background-color: #5D0E41;
