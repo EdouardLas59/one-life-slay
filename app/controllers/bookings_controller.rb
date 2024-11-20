@@ -19,7 +19,7 @@ def create
   @booking.user = User.first
   # remplacer par current user
   if @booking.save
-    redirect_to root_path
+    redirect_to dashboard_index_path
   else
     render :new, status: :unprocessable_entity
   end
@@ -29,13 +29,13 @@ end
 def update
   @movie = @booking.movie
   @booking.uptade(bookings_params)
-  redirect_to root_path
+  redirect_to dashboard_index_path
 end
 
 def destroy
   @movie = @booking.movie
   @booking.destroy
-  redirect_to root_path
+  redirect_to dashboard_index_path
 end
 
 private

@@ -9,8 +9,8 @@
                 <div class="menu">
                     <ul>
                       <li><%= link_to "Home", root_path %></li>
-                      <li><a href="#">Renting out my VHS</a></li>
-                      <li><a href="#"><i class="fas fa-user"></i></a></li>
+                      <li><%= link_to "Renting out my VHS", new_movie_path %></li>
+                      <li><%= link_to dashboard_index_path do %><i class="fas fa-user"></i><% end %></li>
                     </ul>
                 </div>
   </nav>
