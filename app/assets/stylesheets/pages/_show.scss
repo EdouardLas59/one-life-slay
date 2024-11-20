@@ -1,20 +1,5 @@
 body {
-	background-color: #5D0E41;
-	color: #FF204E;
-	animation-duration: 0.01s;
-	animation-name: textflicker;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-	  
-	@keyframes textflicker {
-		from {
-		  text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
-		}
-		to {
-		  text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
-		}
-	}
-
+  background-color: black;
 }
 
 .container-show {
@@ -72,12 +57,12 @@ body {
 .movie-title {
 	display: inline-block;
 	text-align: center;
-	background-color: #00224D;
+	background-color: black;
 	padding: 7px 7px;
 	border-radius: 7px;
 }
 
-.year-genre { 
+.year-genre {
 	display: flex;
 	justify-content: space-between;
 }
@@ -88,12 +73,12 @@ body {
 }
 
 i {
-	color:yellow;
+	color:#ffff00;
 	animation-name: rotation_rating;
 	animation-timing-function: ease-in-out;
 	animation-duration: 1.5s;
 	animation-iteration-count: 1;
-	  
+
 	@keyframes rotation_rating {
 		0% {
 		  transform: rotate(-180deg);
@@ -137,7 +122,7 @@ p {
 }
 
 strong {
-	color: #00224D;	
+	color: #00224D;
 }
 
 .button {
@@ -178,7 +163,7 @@ strong {
 	visibility: visible;
 	opacity: 1;
   }
-  
+
 .popup {
 	margin: 150px auto;
 	padding: 20px;
