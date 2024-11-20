@@ -1,0 +1,41 @@
+<div class="container-show">
+	
+		<div class="movie-poster">
+			<%= image_tag @movie.poster_url, class:"poster" %>
+			<a class="button" href="#popup1">Watch the trailer</a>
+		</div>
+
+		<div id="popup1" class="overlay">
+			<div class="popup">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/-Wp95itbiAA?si=0n5EDKlbh1JP0F1q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				<a class="close" href="#">&times;</a>
+			</div>
+		</div>
+
+		<div class="infos">
+			<div class="movie-infos">
+				<h2 class="movie-title"><%= @movie.title %></h2>
+				<div class="year-genre">
+					<p><strong>Release year: </strong><%= @movie.year %></p>
+					<p><strong>Genre: </strong><%= @movie.genre %></p>
+				</div>
+				<div class="movie-crew">
+					<p><strong>Directed by: </strong> <%= @movie.director %></p>
+					<p><strong>With: </strong> <%=  @movie.actors %></p>
+				</div>
+				<p class="rating"><strong>IMDB Rating: </strong><%= @movie.rating %> <i class="fa-solid fa-star"></i></p>
+			</div>
+
+			<div class="owner-infos">
+				<p><strong>Owner: </strong> <%= @movie.user.email %></p>
+				<p><em><%= @movie.user.email %>'s review:</em> <i class="fa-solid fa-quote-left quotation"></i> <%= @movie.review %></p>
+			</div>
+
+			<div class="schedule">
+				<%= render "bookings/form", movie: @movie, booking: @booking %>
+			</div>
+		</div>
+
+		<div class="map">
+		</div>	
+</div>

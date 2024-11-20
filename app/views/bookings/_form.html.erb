@@ -1,0 +1,19 @@
+<div class="container-booking-form" >
+  <H2><%= "20 € par jour"  %></H2>
+    <div class="form-booking" >
+      <%= simple_form_for [@movie, @booking ] do |f| %>
+        <%= f.input :date_start,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+
+      <%= f.input :date_end,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+        <%= f.submit %>
+          <% end %>
+    </div>
+      <p><%= "20 x 2 jour"  %></p>
+    <div class="p-form-total" >
+      <p><%= "Total :"  %><%= 20 * 2 %></p>
+    </div>
+</div>
