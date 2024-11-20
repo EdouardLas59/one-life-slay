@@ -1,8 +1,5 @@
 body {
-	background: linear-gradient(-45deg, #5D0E41, #750b50, #40072c, #6d1d51);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
+	background-color: #5D0E41;
 	color: #FF204E;
 	animation-duration: 0.01s;
 	animation-name: textflicker;
@@ -18,17 +15,6 @@ body {
 		}
 	}
 
-	@keyframes gradient {
-		0% {
-			background-position: 0% 50%;
-		}
-		50% {
-			background-position: 100% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
-	}
 }
 
 .container-show {
