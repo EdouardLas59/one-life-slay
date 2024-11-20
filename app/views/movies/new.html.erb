@@ -1,0 +1,23 @@
+<h1><%= "New movie" %></h1>
+
+
+
+<div>
+
+
+
+<%= simple_form_for @movie do |f| %>
+
+  <%= f.input :title  %>
+  <%= f.input :poster_url%>
+  <%= f.input :director %>
+  <%=f.input :actors %>
+  <%=f.input :genre %>
+  <%=f.input :year %>
+  <%=f.input :rating %>
+  <%= f.input :quality %>
+  <%= f.input :review  %>
+  <%= f.input :price  %>
+  <%= f.submit   %>
+<% end %>
+</div>
