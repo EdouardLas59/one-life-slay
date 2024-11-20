@@ -48,7 +48,7 @@ poster_urls = [
   "https://posters.movieposterdb.com/10_12/2002/322802/l_322802_b0849c48.jpg",
 ]
 categories = ["Action", "Fantasy", "Horror", "Comedy", "Sci-Fi", "Thriller"]
-100.times do
+24.times do
   title = Faker::Movie.title
   movie = Movie.create!(
     title: title,
