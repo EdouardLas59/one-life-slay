@@ -1,27 +1,21 @@
-body {
-	background-color: #5D0E41;
-	color: #FF204E;
-	animation-duration: 0.01s;
-	animation-name: textflicker;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-	  
-	@keyframes textflicker {
-		from {
-		  text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
-		}
-		to {
-		  text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
-		}
-	}
-
+boody {
+	margin: 0;
+	padding: 0;
+	height: 100%;
 }
 
 .container-show {
 	display:grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 16px;
-	margin-top: 125px;
+	margin: 50px 50px;
+	background-color: #5D0E41;
+	color: #FF204E;
+	text-shadow: 0 0 60px #00224D;
+	padding: 15px;
+	border-radius: 5px;
+	position:relative;
+	z-index: 10;
 }
 
 .movie-poster {
@@ -40,13 +34,13 @@ body {
 	object-position: center;
 	height: 100%;
 	width: 100%;
-	position: relative;
 }
 
 .infos {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 }
 .movie-infos {
 	margin-top: 25px;
@@ -73,6 +67,7 @@ body {
 	display: inline-block;
 	text-align: center;
 	background-color: #00224D;
+	color: #FF204E;
 	padding: 7px 7px;
 	border-radius: 7px;
 }
@@ -91,7 +86,7 @@ i {
 	color:yellow;
 	animation-name: rotation_rating;
 	animation-timing-function: ease-in-out;
-	animation-duration: 1.5s;
+	animation-duration: 1.7s;
 	animation-iteration-count: 1;
 	  
 	@keyframes rotation_rating {
@@ -101,7 +96,7 @@ i {
 		}
 		50% {
 		  transform: rotate(180deg);
-		  transform: scale(1.3);
+		  transform: scale(1.7);
 		}
 		100% {
 		  transform: rotate(-180deg);
@@ -114,18 +109,13 @@ i {
 	color: #00224D;
 }
 
-.schedule {
-	width: 50vw;
-	display: flex;
-	align-items: center;
-}
 
 .container-booking-form {
 	background-color: #5D0E41;
 	border-radius: 5px;
 	border-style: solid;
 	border-color: #FF204E;
-	color: #FF204E
+	color: #FF204E;
 }
 
 .form-booking {
@@ -146,60 +136,30 @@ strong {
 	border-style: solid;
 	border-color: #FF204E;
 	color: #FF204E;
-	padding: 7px 7px;
+	font-size: 25px;
+	padding: 5px 15px;
 	text-align: center;
-	position: absolute;
-	top: 175px; left: 35px;
 	text-decoration: none;
 	transition: all 0.3s ease-out;
 }
 
 .button:hover {
 	background-color: #FF204E;
-	border-radius: 5px;
-	border-style: solid;
 	border-color: #00224D;
 	color: #00224D;
 }
 
-.overlay {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background: rgba(0, 0, 0, 0.7);
-	transition: opacity 500ms;
-	visibility: hidden;
-	opacity: 0;
-  }
+.movie-button {
+	display: flex;
+	justify-content: center;
+}
 
-.overlay:target {
-	visibility: visible;
-	opacity: 1;
-  }
-  
-.popup {
-	margin: 150px auto;
-	padding: 20px;
-	background: #00224D;
+.movie-map {
+	background-color: #5D0E41;
 	border-radius: 5px;
-	width: 40%;
-	position: relative;
-	transition: all 5s ease-in-out;
-  }
-
-.popup .close {
-	position: absolute;
-	top: 0px;
-	right: 4px;
-	transition: all 200ms;
-	font-size: 30px;
-	font-weight: bold;
-	text-decoration: none;
-	color: #5D0E41;
-  }
-
-.popup .close:hover {
+	border-style: solid;
+	border-color: #FF204E;
 	color: #FF204E;
-  }
+	display: flex;
+	align-items: center;
+}

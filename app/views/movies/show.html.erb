@@ -1,42 +1,39 @@
 <div class="container-show">
 
-		<div class="movie-poster">
-			<%= image_tag @movie.poster_url, class:"poster" %>
-			<a class="button" href="#popup1">Watch the trailer</a>
+	<div class="movie-poster">
+		<%= image_tag @movie.poster_url, class:"poster" %>
+	</div>
+
+	<div class="infos">
+		<div class="movie-infos">
+			<h2 class="movie-title"><%= @movie.title %></h2>
+			<div class="year-genre">
+				<p><strong>Release year: </strong><%= @movie.year %></p>
+				<p><strong>Genre: </strong><%= @movie.genre %></p>
+			</div>
+			<div class="movie-crew">
+				<p><strong>Directed by: </strong> <%= @movie.director %></p>
+				<p><strong>With: </strong> <%=  @movie.actors %></p>
+			</div>
+			<p class="rating"><strong>IMDB Rating: </strong><%= @movie.rating %> <i class="fa-solid fa-star"></i></p>
 		</div>
 
-		<div id="popup1" class="overlay">
-			<div class="popup">
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/-Wp95itbiAA?si=0n5EDKlbh1JP0F1q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-				<a class="close" href="#">&times;</a>
-			</div>
+		<button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+			View trailer
+		</button>
+
+
+		<div class="owner-infos">
+			<p><strong>Owner: </strong> <%= @movie.user.email %></p>
+			<p><em><%= @movie.user.email %>'s review:</em> <i class="fa-solid fa-quote-left quotation"></i> <%= @movie.review %></p>
 		</div>
 
-		<div class="infos">
-			<div class="movie-infos">
-				<h2 class="movie-title"><%= @movie.title %></h2>
-				<div class="year-genre">
-					<p><strong>Release year: </strong><%= @movie.year %></p>
-					<p><strong>Genre: </strong><%= @movie.genre %></p>
-				</div>
-				<div class="movie-crew">
-					<p><strong>Directed by: </strong> <%= @movie.director %></p>
-					<p><strong>With: </strong> <%=  @movie.actors %></p>
-				</div>
-				<p class="rating"><strong>IMDB Rating: </strong><%= @movie.rating %> <i class="fa-solid fa-star"></i></p>
-			</div>
-
-			<div class="owner-infos">
-				<p><strong>Owner: </strong> <%= @movie.user.email %></p>
-				<p><em><%= @movie.user.email %>'s review:</em> <i class="fa-solid fa-quote-left quotation"></i> <%= @movie.review %></p>
-			</div>
-
-			<div class="schedule">
-				<%= render "bookings/form", movie: @movie, booking: @booking %>
-			</div>
+		<div>
+			<%= render "bookings/form", movie: @movie, booking: @booking %>
 		</div>
+	</div>
 
-	<div style="width: 75%; height: 300px;"
+	<div class="movie-map" style="width: 100%; height: 300px;"
 		data-controller="map"
 		data-map-marker-value="<%= @marker.to_json %>"
 		data-map-user-value=" <%= @marker_user.to_json%> "
@@ -44,3 +41,50 @@
 	</div>
 
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="max-width: none">
+		<div class="modal-content w-100 h-100">
+			<div class="modal-header">
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+
+					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/-Wp95itbiAA?si=Dq9l1EVpGqpBw-Uh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+  window.onload = function() {
+    var imgSrc = "https://images4.alphacoders.com/134/1340419.png"; // URL de l'image
+    var speed = 1; // Vitesse du défilement
+    var scale = 1; // Facteur de mise à l'échelle de l'image
+
+    // Sélectionner l'élément body pour l'arrière-plan animé
+    var bodyElement = document.body;
+    var x = 0; // Position de départ du défilement
+
+    // Fonction qui gère l'animation de l'image en fond
+    function animateBackground() {
+      // Mettre à jour la position du background
+      bodyElement.style.backgroundPositionX = x + 'px';
+
+      // Modifier la position pour créer l'effet de défilement
+      x -= speed;
+
+      // Si l'image a complètement défilé, recommencer
+      if (x <= -bodyElement.offsetWidth) {
+        x = 0;
+      }
+    }
+
+    // Appliquer l'image en fond et démarrer l'animation
+    bodyElement.style.backgroundImage = 'url(' + imgSrc + ')';
+    bodyElement.style.backgroundRepeat = 'repeat-x'; // Répéter l'image horizontalement
+    bodyElement.style.backgroundSize = "contain";
+    bodyElement.style.backgroundAttachment = 'fixed'; // L'image reste fixe lors du défilement de la page
+    setInterval(animateBackground, 20);
+  };
+</script>
