@@ -8,11 +8,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
 
-resources :users do
-  member do
-    get :show
-  end
-end
+resources :dashboard
 
   resources :movies do
     resources :bookings, only: [:new, :create, :update, :comfirm]
