@@ -2,22 +2,32 @@
 
 
 
-<div>
-
-
+<div class="new-movie-container" >
 
 <%= simple_form_for @movie do |f| %>
-
+ <div class="new-form-imput" >
   <%= f.input :title  %>
-  <%= f.input :poster_url%>
-  <%= f.input :director %>
-  <%=f.input :actors %>
-  <%=f.input :genre %>
-  <%=f.input :year %>
-  <%=f.input :rating %>
-  <%= f.input :quality %>
-  <%= f.input :review  %>
-  <%= f.input :price  %>
-  <%= f.submit   %>
-<% end %>
+
+    <%= f.input :poster_url%>
+    <%= f.input :director %>
+    <%=f.input :actors %>
+    <%=f.input :genre %>
+    <%=f.input :year %>
+    <%=f.input :rating %>
+    <%= f.input :quality, collection: ['mint', 'standard', 'poor'], as: :select %>
+    <%= f.input :review  %>
+     <%= f.input :price, as: :range, input_html: { min: 0, max: 20, value: @movie.price || 0 } %>
+    <span id="priceValue"><%= @movie.price || 0 %> €</span>
+    <%= f.submit   %>
+    <% end %>
+  </div>
+<script>
+  const priceSlider = document.querySelector('input[name="movie[price]"]');
+  const priceValue = document.getElementById('priceValue');
+
+  priceSlider.addEventListener('input', function() {
+    priceValue.textContent = priceSlider.value + ' €';
+  });
+</script>
+
 </div>

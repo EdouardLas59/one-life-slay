@@ -20,9 +20,14 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.find(params[:movie_id])
-    @newmovie = @movie.new(movie_params)
-    # redirect to a remplir
+    @movie = Movie.new(movie_params)
+    @movie.user = current_user
+    if @movie.save
+    # redirect_to new_dashboard_path
+    redirect_to dashboard_index_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -30,11 +35,11 @@ class MoviesController < ApplicationController
     @booking = Booking.new
   end
 
-end
+
 
 private
 
-def movie_params
+  def movie_params
   params.require(:movie).permit(:title, :poster_url, :director, :actors, :genre, :year, :rating, :quality, :price )
-
+  end
 end

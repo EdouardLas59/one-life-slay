@@ -1,4 +1,4 @@
 class Movie < ApplicationRecord
   belongs_to :user
-  validates :title, presence: true
+  validates :title, :quality, :price, presence: true
 end
