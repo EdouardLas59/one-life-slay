@@ -1,14 +1,26 @@
-<div class="container">
-  <h1>coucou</h1>
-  <h2>My current reservations</h2>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <li>
-        <p> Loca : <%= booking.date_start %></p>
-        <p> Loca end : <%= booking.date_end %></p>
-        <p>You can pick your movie there : <%= booking.pickup_place %></p>
-        <p>Total price : <%= booking.total_price %></p>
-      </li>
+<h1> My profil </h1>
+
+<h2>Available movies</h2>
+<ul>
+  <% current_user.movies.each do |movie| %>
+    <% if movie.bookings.size == 0 %>
+      <li><%= movie.title %> - <%= movie.year %> - <%= movie.genre %></li>
     <% end %>
-  </ul>
-</div>
+  <% end %>
+</ul>
+
+<h2>Booking renting</h2>
+<ul>
+  <% current_user.movies.each do |movie| %>
+    <% if movie.bookings.size > 0 %>
+      <li><%= movie.title %> - rented from <%= movie.bookings.last.date_start %> to <%= movie.bookings.last.date_end %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<h2>current renting</h2>
+<ul>
+  <% current_user.bookings.each do |booking| %>
+    <li><%= booking.movie.title %> - rented <%= booking.date_start %> to <%= booking.date_end %></li>
+  <% end %>
+</ul>
