@@ -1,26 +1,38 @@
-<h1> My profil </h1>
+<div class="container">
+  <h1> My profil </h1>
 
-<h2>Available movies</h2>
-<ul>
-  <% current_user.movies.each do |movie| %>
-    <% if movie.bookings.size == 0 %>
-      <li><%= movie.title %> - <%= movie.year %> - <%= movie.genre %></li>
+  <h2>Available Movies</h2>
+  <ul>
+    <% current_user.movies.each do |movie| %>
+      <% if movie.bookings.size == 0 %>
+        <li>
+          <%= image_tag(movie.poster_url, alt: "#{movie.title} poster", class: "poster") if movie.poster_url.present? %>
+          <%= movie.title %> - <%= movie.year %> - <%= movie.genre %>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
 
-<h2>Booking renting</h2>
-<ul>
-  <% current_user.movies.each do |movie| %>
-    <% if movie.bookings.size > 0 %>
-      <li><%= movie.title %> - rented from <%= movie.bookings.last.date_start %> to <%= movie.bookings.last.date_end %></li>
+  <h2>Booking Renting</h2>
+  <ul>
+    <% current_user.movies.each do |movie| %>
+      <% if movie.bookings.size > 0 %>
+        <li>
+          <%= image_tag(movie.poster_url, alt: "#{movie.title} poster", class: "poster") if movie.poster_url.present? %>
+          <%= movie.title %> - <%= movie.year %> - <%= movie.genre %>
+          rented from <%= movie.bookings.date_start %> to <%= movie.bookings.date_end %>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
 
-<h2>current renting</h2>
-<ul>
-  <% current_user.bookings.each do |booking| %>
-    <li><%= booking.movie.title %> - rented <%= booking.date_start %> to <%= booking.date_end %></li>
-  <% end %>
-</ul>
+  <h2>Current Renting</h2>
+  <ul>
+    <% current_user.bookings.each do |booking| %>
+      <li>
+        <%= image_tag(booking.movie.poster_url, alt: "#{booking.movie.title} poster", class: "poster") if booking.movie.poster_url.present? %>
+        <%= booking.movie.title %> - rented from <%= booking.date_start %> to <%= booking.date_end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

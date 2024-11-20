@@ -11,6 +11,7 @@ require "open-uri"
 require "json"
 require "net/http"
 require "faker"
+Booking.destroy_all
 Movie.destroy_all
 User.destroy_all
 
