@@ -11,13 +11,15 @@ require "open-uri"
 require "json"
 require "net/http"
 require "faker"
+
+Booking.destroy_all
 Movie.destroy_all
 User.destroy_all
 
-axel = User.create(email: "axel@mail.com", password: "password")
-alex = User.create(email: "alex@mail.com", password: "password")
-math = User.create(email: "math@mail.com", password: "password")
-edouard = User.create(email: "edouard@mail.com", password: "password")
+axel = User.create(email: "axel@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
+alex = User.create(email: "alex@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
+math = User.create(email: "math@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
+edouard = User.create(email: "edouard@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
 poster_urls = [
   "https://posters.movieposterdb.com/24_06/2024/16366836/l_venom-the-last-dance-movie-poster_a982082b.jpg",
   "https://posters.movieposterdb.com/24_09/2024/28015403/l_heretic-movie-poster_5aebf7ad.jpg",
