@@ -20,7 +20,6 @@ def create
   # remplacer par current user
   if @booking.save
     redirect_to root_path
-    # replacer par movie_path(@movie)
   else
     render :new, status: :unprocessable_entity
   end
@@ -30,13 +29,13 @@ end
 def update
   @movie = @booking.movie
   @booking.uptade(bookings_params)
-  redirect_to movie_path(@movie)
+  redirect_to root_path
 end
 
 def destroy
   @movie = @booking.movie
   @booking.destroy
-  redirect_to movie_path(@movie)
+  redirect_to root_path
 end
 
 private
