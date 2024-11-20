@@ -11,6 +11,10 @@
 @import "components/index";
 @import "pages/index";
 
+@import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
+
+
+@import "profil/profilpage";
 
 .p-form-total{
   display: flex;

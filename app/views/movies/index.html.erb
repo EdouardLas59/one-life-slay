@@ -1,1 +1,53 @@
+<div class="search-bar-container">
+      <form class="search-bar">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+</div>
+<%# <form class="search-bar" action="/recherche" method="GET"> %>
+<%# <input class="form-control mr-sm-2" type="search" name="movie" placeholder="Chercher un film" aria-label="Search"> %>
+<div class="filter-bar p-5">
+    <button class="filter-btn" data-category="Action">
+      <i class="fas fa-fist-raised"></i> Action
+    </button>
+    <button class="filter-btn" data-category="Fantasy">
+      <i class="fas fa-magic"></i> Fantasy
+    </button>
+    <button class="filter-btn" data-category="Horror">
+      <i class="fas fa-ghost"></i> Horror
+    </button>
+    <button class="filter-btn" data-category="Comedy">
+      <i class="fas fa-laugh"></i> Comedy
+    </button>
+    <button class="filter-btn" data-category="Sci-Fi">
+      <i class="fas fa-rocket"></i> Sci-Fi
+    </button>
+    <button class="filter-btn" data-category="Thriller">
+      <i class="fas fa-skull-crossbones"></i> Thriller
+    </button>
+</div>
 
+  <div class="movie-cards">
+    <div class="movies-grid">
+      <% @movies.each do |movie| %>
+        <div class="card-movie">
+          <div class="card-movie-image">
+            <%= image_tag movie.poster_url, class: 'img-poster' %>
+          </div>
+
+          <div class="movie-header-content">
+            <p class="movie-title"><%= movie.title %></p>
+            <p class="movie-rating"><%= movie.rating %> <i class="fa-solid fa-star" style="color: #FFD43B;"></i></p>
+            <p class="overflow-ellipsis"><%= movie.review %></p>
+          </div>
+
+          <div class="show-delete">
+          <%= link_to "See more", class: "btn btn-see-more" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

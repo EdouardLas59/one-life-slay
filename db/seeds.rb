@@ -11,10 +11,15 @@ require "open-uri"
 require "json"
 require "net/http"
 require "faker"
+
+Booking.destroy_all
 Movie.destroy_all
 User.destroy_all
 
-User.create(email:"blabla@gmail.com", password:"password")
+axel = User.create(email: "axel@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
+alex = User.create(email: "alex@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
+math = User.create(email: "math@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
+edouard = User.create(email: "edouard@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
 
 poster_urls = [
   "https://posters.movieposterdb.com/24_06/2024/16366836/l_venom-the-last-dance-movie-poster_a982082b.jpg",
@@ -45,7 +50,7 @@ poster_urls = [
   "https://posters.movieposterdb.com/10_12/2002/322802/l_322802_b0849c48.jpg",
 ]
 categories = ["Action", "Fantasy", "Horror", "Comedy", "Sci-Fi", "Thriller"]
-100.times do
+24.times do
   title = Faker::Movie.title
   Movie.create!(
     title: title,
@@ -69,3 +74,30 @@ categories = ["Action", "Fantasy", "Horror", "Comedy", "Sci-Fi", "Thriller"]
   )
 end
 puts "Seeded #{Movie.count} movies"
+
+Booking.create([
+  {
+    date_start: Date.today - 1,
+    date_end: Date.today + 5,
+    total_price: 50,
+    pickup_place: "Paris Gare",
+    user: alex,
+    movie: Movie.last
+  },
+  {
+    date_start: Date.today - 10,
+    date_end: Date.today + 15,
+    total_price: 100,
+    pickup_place: "Aéroport Charles-de-Gaulle",
+    user: alex,
+    movie: Movie.find(Movie.last.id - 1)
+  },
+  {
+    date_start: Date.today - 20,
+    date_end: Date.today + 25,
+    total_price: 75,
+    pickup_place: "Lyon Part-Dieu",
+    user: alex,
+    movie: Movie.first
+  }
+])
