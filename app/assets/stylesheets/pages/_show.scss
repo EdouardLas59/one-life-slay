@@ -5,15 +5,6 @@ body {
 	animation-name: textflicker;
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
-	  
-	@keyframes textflicker {
-		from {
-		  text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
-		}
-		to {
-		  text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
-		}
-	}
 
 }
 
@@ -77,7 +68,7 @@ body {
 	border-radius: 7px;
 }
 
-.year-genre { 
+.year-genre {
 	display: flex;
 	justify-content: space-between;
 }
@@ -93,7 +84,7 @@ i {
 	animation-timing-function: ease-in-out;
 	animation-duration: 1.5s;
 	animation-iteration-count: 1;
-	  
+
 	@keyframes rotation_rating {
 		0% {
 		  transform: rotate(-180deg);
@@ -137,7 +128,7 @@ p {
 }
 
 strong {
-	color: #00224D;	
+	color: #00224D;
 }
 
 .button {
@@ -178,7 +169,7 @@ strong {
 	visibility: visible;
 	opacity: 1;
   }
-  
+
 .popup {
 	margin: 150px auto;
 	padding: 20px;

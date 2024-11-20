@@ -1,33 +1,65 @@
-<h1><%= "New movie" %></h1>
+<h1 class="h1creat" ><%= "New movie" %></h1>
 
+<div class="new-movie-container">
+  <%= simple_form_for @movie do |f| %>
+    <div class="new-form-imput">
+      <%= f.input :title %>
+      <%= f.input :poster_url %>
+      <%= f.input :director %>
+      <%= f.input :actors %>
+      <%= f.input :genre %>
+      <%= f.input :year %>
+      <%= f.input :rating %>
+      <%= f.input :quality, collection: ['mint', 'standard', 'poor'], as: :select %>
+      <%= f.input :review %>
+      <div class="form-price" >
+      <%= f.input :price, as: :range, input_html: { min: 0, max: 20, value: @movie.price || 0, id: 'priceRange'} %>
+      <span id="priceValue"><%= @movie.price || 0 %> €</span>
+     </div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const priceRange = document.getElementById('priceRange');
+    const priceValue = document.getElementById('priceValue');
 
-
-<div class="new-movie-container" >
-
-<%= simple_form_for @movie do |f| %>
- <div class="new-form-imput" >
-  <%= f.input :title  %>
-
-    <%= f.input :poster_url%>
-    <%= f.input :director %>
-    <%=f.input :actors %>
-    <%=f.input :genre %>
-    <%=f.input :year %>
-    <%=f.input :rating %>
-    <%= f.input :quality, collection: ['mint', 'standard', 'poor'], as: :select %>
-    <%= f.input :review  %>
-     <%= f.input :price, as: :range, input_html: { min: 0, max: 20, value: @movie.price || 0 } %>
-    <span id="priceValue"><%= @movie.price || 0 %> €</span>
-    <%= f.submit   %>
-    <% end %>
-  </div>
-<script>
-  const priceSlider = document.querySelector('input[name="movie[price]"]');
-  const priceValue = document.getElementById('priceValue');
-
-  priceSlider.addEventListener('input', function() {
-    priceValue.textContent = priceSlider.value + ' €';
+    priceRange.addEventListener('input', function() {
+      priceValue.textContent = priceRange.value + ' €';
+    });
   });
 </script>
-
 </div>
+
+<script>
+  window.onload = function() {
+    var imgSrc = "https://images4.alphacoders.com/134/1340419.png"; // URL de l'image
+    var speed = 1; // Vitesse du défilement
+    var scale = 1; // Facteur de mise à l'échelle de l'image
+
+    // Sélectionner l'élément body pour l'arrière-plan animé
+    var bodyElement = document.body;
+    var x = 0; // Position de départ du défilement
+
+    // Fonction qui gère l'animation de l'image en fond
+    function animateBackground() {
+      // Mettre à jour la position du background
+      bodyElement.style.backgroundPositionX = x + 'px';
+
+      // Modifier la position pour créer l'effet de défilement
+      x -= speed;
+
+      // Si l'image a complètement défilé, recommencer
+      if (x <= -bodyElement.offsetWidth) {
+        x = 0;
+      }
+    }
+
+    // Appliquer l'image en fond et démarrer l'animation
+    bodyElement.style.backgroundImage = 'url(' + imgSrc + ')';
+    bodyElement.style.backgroundRepeat = 'repeat-x'; // Répéter l'image horizontalement
+    bodyElement.style.backgroundSize = "contain";
+    bodyElement.style.backgroundAttachment = 'fixed'; // L'image reste fixe lors du défilement de la page
+    setInterval(animateBackground, 50);
+  };
+</script>
