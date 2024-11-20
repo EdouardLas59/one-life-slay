@@ -2,6 +2,14 @@
 
 	<div class="movie-poster">
 		<%= image_tag @movie.poster_url, class:"poster" %>
+		<a class="button" href="#popup1">Watch the trailer</a>
+	</div>
+
+	<div id="popup1" class="overlay">
+		<div class="popup">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/-Wp95itbiAA?si=0n5EDKlbh1JP0F1q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<a class="close" href="#">&times;</a>
+		</div>
 	</div>
 
 	<div class="infos">
@@ -32,4 +40,3 @@
 	</div>
 
 </div>
-
