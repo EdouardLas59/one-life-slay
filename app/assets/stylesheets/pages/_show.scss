@@ -198,15 +198,15 @@ strong {
 	padding: 20px;
 	background: #00224D;
 	border-radius: 5px;
-	width: 45%;
+	width: 40%;
 	position: relative;
 	transition: all 5s ease-in-out;
   }
 
 .popup .close {
 	position: absolute;
-	top: 2px;
-	right: 2px;
+	top: 0px;
+	right: 4px;
 	transition: all 200ms;
 	font-size: 30px;
 	font-weight: bold;
