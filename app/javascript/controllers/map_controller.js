@@ -14,8 +14,9 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/navigation-night-v1"
-
+      style: "mapbox://styles/mapbox/navigation-night-v1",
+      center: [ 3.066667, 50.633333],
+      zoom: 10
     })
 
     this.#addMarkerToMap()
@@ -35,6 +36,11 @@ export default class extends Controller {
         .addTo(this.map)
         .setPopup(popup)
     })
+    //  marker.getElement().customValue = marker.info_window_html() ;
+
+    //     marker.getElement().addEventListener('click', function() {
+    //         alert("address:" + marker.getElement().customValue);
+    //     });
   }
 
   #fitMapToMarkers() {
