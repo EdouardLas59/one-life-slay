@@ -70,6 +70,7 @@ boody {
 	color: #FF204E;
 	padding: 7px 7px;
 	border-radius: 7px;
+	font-size: 25px;
 }
 
 .year-genre { 
@@ -82,7 +83,7 @@ boody {
 	justify-content: space-between;
 }
 
-i {
+.fa-star {
 	color:yellow;
 	animation-name: rotation_rating;
 	animation-timing-function: ease-in-out;

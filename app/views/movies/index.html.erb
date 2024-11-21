@@ -1,4 +1,4 @@
-<div class="search-bar-container">
+<div class="search-bar-container mt-5">
       <form class="search-bar" action="/recherche" method="GET">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
@@ -39,7 +39,6 @@
           <div class="movie-header-content">
             <p class="movie-title"><%= movie.title %></p>
             <p class="movie-rating"><%= movie.rating %> <i class="fa-solid fa-star" style="color: #FFD43B;"></i></p>
-            <p class="overflow-ellipsis"><%= movie.review %></p>
           </div>
 
           <div class="show-delete">
