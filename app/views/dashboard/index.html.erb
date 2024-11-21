@@ -3,13 +3,12 @@
     <h1> My Profil </h1>
   </div>
 
-  <div class="filter-bar p-5">
     <div class="scroll-nav">
-      <a href="#available-movies">Available for Rent</a>
-      <a href="#rented-out-movies">Movies I own that I am renting</a>
-      <a href="#rented-movies">Movies I have rented</a>
+    <div class="dashtitless">  <a href="#available-movies">Available for Rent</a> </div>
+     <div class="dashtitless"> <a href="#rented-out-movies">Movies I own that I am renting</a> </div>
+     <div class="dashtitless"> <a href="#rented-movies">Movies I have rented</a> </div>
     </div>
-  </div>
+
 
   <h2 id="available-movies">Movies I own and available for rent</h2>
   <ul class="movie-listdash">
@@ -49,7 +48,7 @@
   <% end %>
 </ul>
 
-  <h2 id="rented-movies">Movies I have rented</h2>
+  <h2 id="rented-movies">Movies I have rented as a client</h2>
   <ul class="movie-listdash">
     <% current_user.bookings.each do |booking| %>
       <li class="movie-itemdash">
@@ -66,3 +65,4 @@
     <% end %>
   </ul>
 </div>
+

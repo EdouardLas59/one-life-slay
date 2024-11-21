@@ -39,3 +39,16 @@
 .delete-linkdash:hover {
   color: darkred;
 }
+
+.dashtitless {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s;
+}
