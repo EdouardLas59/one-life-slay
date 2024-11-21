@@ -13,6 +13,13 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :update, :comfirm]
   end
   resources :bookings, only: [:destroy]
+
+  resources :movies do
+    get :autocomplete_title, on: :collection
+    get :find_by_title, on: :collection  # Route pour récupérer les données complètes d'un film
+  end
+
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
