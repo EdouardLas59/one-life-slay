@@ -16,13 +16,14 @@
 // Grid layout for movie cards
 .movies-grid {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(5,1fr);
   grid-gap: 20px;
   gap: 32px
 }
 
 // Movie card styling
 .card-movie {
+
   transition: all 0.5s;
   position: absolute;
   background-color: black;
@@ -35,6 +36,7 @@
   // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 300px;
   // transition: transform 0.3s ease-in-out;
+
 
   &:hover {
     // transform: translateY(-10px);
@@ -60,8 +62,9 @@
 
 .img-poster {
   object-fit: cover;
-  width: 100%;
+  width: 95%;
   height: 100%;
+  border-radius: 5px;
 }
 
 // Movie title and rating styling
@@ -70,8 +73,10 @@
 }
 
 .movie-title {
+
   font-size: 1.6rem;
   color: white;
+
   font-weight: bold;
   margin-bottom: 10px;
   overflow: hidden;
@@ -145,4 +150,8 @@
   .card-movie {
     max-width: 100%;
   }
+}
+
+i {
+  color: #5D0E41;
 }

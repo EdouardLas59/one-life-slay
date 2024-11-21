@@ -1,5 +1,5 @@
 <div class="container-booking-form" >
-  <H2><%= "20 € par jour"  %></H2>
+  <H2><%= movie.price %> dollars a day (<%= movie.quality %> VHS quality)</H2>
     <div class="form-booking" >
       <%= simple_form_for [@movie, @booking ] do |f| %>
         <%= f.input :date_start,
@@ -12,8 +12,7 @@
         <%= f.submit %>
           <% end %>
     </div>
-      <p><%= "20 x 2 jour"  %></p>
     <div class="p-form-total" >
-      <p><%= "Total :"  %><%= 20 * 2 %></p>
+      <p>Total: <%= movie.price %></p>
     </div>
 </div>

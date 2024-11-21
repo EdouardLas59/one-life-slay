@@ -21,59 +21,330 @@ alex = User.create(email: "alex@mail.com", password: "password", address: "2 ave
 math = User.create(email: "math@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
 edouard = User.create(email: "edouard@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
 
-poster_urls = [
-  "https://posters.movieposterdb.com/24_06/2024/16366836/l_venom-the-last-dance-movie-poster_a982082b.jpg",
-  "https://posters.movieposterdb.com/24_09/2024/28015403/l_heretic-movie-poster_5aebf7ad.jpg",
-  "https://posters.movieposterdb.com/24_05/2024/6263850/l_deadpool-wolverine-movie-poster_ca977381.jpg",
-  "https://posters.movieposterdb.com/14_09/2014/816692/l_816692_593eaeff.jpg",
-  "https://posters.movieposterdb.com/24_07/1985/88763/l_back-to-the-future-movie-poster_616b0733.jpg",
-  "https://posters.movieposterdb.com/08_05/2008/468569/l_468569_f0e2cd63.jpg",
-  "https://posters.movieposterdb.com/20_10/2012/848228/l_848228_9bc5bc2a.jpg",
-  "https://posters.movieposterdb.com/24_11/2025/9603208/l_mission-impossible-the-final-reckoning-movie-poster_5e87e06d.jpg",
-  "https://posters.movieposterdb.com/24_09/2024/1262426/l_wicked-movie-poster_63536922.jpg",
-  "https://posters.movieposterdb.com/24_08/2024/29623480/l_the-wild-robot-movie-poster_7e1b9c37.jpg",
-  "https://posters.movieposterdb.com/24_10/0/20215234/l_conclave-movie-poster_d7d40474.jpg", # Interstellar
-  "https://posters.movieposterdb.com/24_11/2024/2347285/l_the-best-christmas-pageant-ever-movie-poster_817421f3.jpg",
-  "https://posters.movieposterdb.com/24_08/2024/17526714/l_the-substance-movie-poster_1dbeba64.jpg",
-  "https://posters.movieposterdb.com/24_11/2024/32245065/l_matki-pingwinw-movie-poster_e1a9e927.jpg",
-  "https://posters.movieposterdb.com/13_02/2001/241527/l_241527_da927a3d.jpg",
-  "https://posters.movieposterdb.com/09_06/2009/417741/l_417741_5ac81107.jpg",
-  "https://posters.movieposterdb.com/24_06/2002/167261/l_the-lord-of-the-rings-the-two-towers-movie-poster_28018e33.jpg",
-  "https://posters.movieposterdb.com/22_06/2001/120737/l_120737_0ff31144.jpg",
-  "https://posters.movieposterdb.com/24_06/2002/167261/l_the-lord-of-the-rings-the-two-towers-movie-poster_28018e33.jpg",
-  "https://posters.movieposterdb.com/22_05/2016/4061080/l_4061080_b4baee88.jpg",
-  "https://posters.movieposterdb.com/22_07/2021/10273784/l_10273784_e75bc38e.jpg",
-  "https://posters.movieposterdb.com/08_10/1929/20581/l_20581_917823aa.jpg",
-  "https://posters.movieposterdb.com/19_12/2016/4249242/l_4249242_bc9e1d3c.jpg",
-  "https://posters.movieposterdb.com/07_11/2000/264263/l_264263_85ba00ef.jpg",
-  "https://posters.movieposterdb.com/08_01/2006/493430/l_493430_d63c78f8.jpg",
-  "https://posters.movieposterdb.com/10_12/2002/322802/l_322802_b0849c48.jpg",
-]
-categories = ["Action", "Fantasy", "Horror", "Comedy", "Sci-Fi", "Thriller"]
-24.times do
-  title = Faker::Movie.title
-  Movie.create!(
-    title: title,
-    review: [
-      "#{Faker::Movie.title} follows #{Faker::Name.name}, a #{Faker::Job.title.downcase} from #{Faker::Address.city}. When they discover a secret about #{Faker::Company.name}, they must team up with #{Faker::Name.name}, a #{Faker::Job.title.downcase}, to uncover a plot that could threaten the future.",
-      "#{Faker::Movie.title} tells the story of #{Faker::Name.name}, a #{Faker::Job.title.downcase} in #{Faker::Address.city}. When their investigation into #{Faker::Company.name} leads them to a web of lies, they uncover a conspiracy that forces them to make a life-changing decision.",
-      "#{Faker::Movie.title} is about #{Faker::Name.name}, a #{Faker::Job.title.downcase} who uncovers a dark secret hidden within #{Faker::Company.name}. Alongside #{Faker::Name.name}, a #{Faker::Job.title.downcase}, they must expose the truth before it's buried forever.",
-      "#{Faker::Movie.title} follows #{Faker::Name.name}, a #{Faker::Job.title.downcase} who stumbles upon a dangerous plot involving #{Faker::Company.name}. As they race against time, they uncover a conspiracy that could alter history. With the help of #{Faker::Name.name}, a #{Faker::Job.title.downcase}, they try to stop the forces behind it.",
-      "#{Faker::Movie.title} tells the journey of #{Faker::Name.name}, a #{Faker::Job.title.downcase} from #{Faker::Address.city}. When they discover a hidden connection between #{Faker::Company.name} and a powerful organization, they must decide if they will expose the truth or protect their own life.",
-      "#{Faker::Movie.title} follows #{Faker::Name.name}, a #{Faker::Job.title.downcase} who uncovers a dangerous secret within #{Faker::Company.name}. Now, with the help of #{Faker::Name.name}, a #{Faker::Job.title.downcase}, they must fight against a corrupt system to bring the truth to light."
-              ].sample,
-    poster_url: poster_urls.sample,
-    rating: rand(1..10).round(1),
-    director: Faker::Name.name,
-    actors: "#{Faker::Name.name}, #{Faker::Name.name}, #{Faker::Name.name}",
-    genre: categories.sample,
-    year: rand(1950..2024).round(1),
-    quality: "good",
-    price: 10,
-    user: User.first
-  )
-end
-puts "Seeded #{Movie.count} movies"
+Movie.create!(
+title: "The Dark Knight",
+review: "When a menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman, James Gordon and Harvey Dent must work together to put an end to the madness.",
+poster_url: "https://xl.movieposterdb.com/08_06/2008/468569/xl_468569_fe24b125.jpg",
+rating: 9.0,
+director: "Christopher Nolan",
+actors: "Heath Ledger, Christian Bale",
+genre: "Thriller",
+year: "2008",
+quality: "good",
+price: 4,
+user: User.first)
+
+Movie.create!(
+title: "The Lord of the Rings: The Return of the King",
+review: "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+poster_url: "https://xl.movieposterdb.com/22_11/2003/167260/xl_the-lord-of-the-rings-the-return-of-the-king-movie-poster_a977da10.jpg",
+rating: 9.0,
+director: "Peter Jackson",
+actors: "Sean Astin, Viggo Mortensen",
+genre: "Fantasy",
+year: "2003",
+quality: "average",
+price: 3,
+user: User.first)
+
+Movie.create!(
+title: "The Matrix",
+review: "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
+poster_url: "https://xl.movieposterdb.com/06_11/1999/0133093/xl_145384_0133093_fd241228.jpg",
+rating: 8.7,
+director: "Wachowski sisters",
+actors: "Keanu Reeves, Hugo Weaving",
+genre: "Science-Fiction",
+year: "1999",
+quality: "very good",
+price: 5,
+user: User.first)
+
+Movie.create!(
+title: "Mad Max: Fury Road",
+review: "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshipper and a drifter named Max.",
+poster_url: "https://xl.movieposterdb.com/15_05/2015/1392190/xl_1392190_1ae64e1a.jpg",
+rating: 8.1,
+director: "George Miller",
+actors: "Tom Hardy, Charlize Theron",
+genre: "Science-Fiction",
+year: "2015",
+quality: "poor",
+price: 2,
+user: User.first)
+
+Movie.create!(
+title: "Ready Player One",
+review: "When the creator of a virtual reality called the OASIS dies, he makes a posthumous challenge to all OASIS users to find his Easter Egg, which will give the finder his fortune and control of his world.",
+poster_url: "https://xl.movieposterdb.com/20_06/2018/1677720/xl_1677720_376c9e0b.jpg",
+rating: 7.4,
+director: "Steven Spielberg",
+actors: "Tye Sheridan, Ben Mendelsohn",
+genre: "Science-Fiction",
+year: "2018",
+quality: "good",
+price: 4,
+user: User.first)
+
+Movie.create!(
+title: "Schindler's List",
+review: "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+poster_url: "https://xl.movieposterdb.com/21_03/1993/108052/xl_108052_bd91d0b6.jpg",
+rating: 9.0,
+director: "Steven Spielberg",
+actors: "Liam Neeson, Ralph Fiennes",
+genre: "Drama",
+year: "1994",
+quality: "average",
+price: 3,
+user: User.first)
+
+Movie.create!(
+title: "The Godfather Part II",
+review: "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
+poster_url: "https://xl.movieposterdb.com/21_06/1974/71562/xl_71562_88e1f048.jpg",
+rating: 9.0,
+director: "Francis Ford Coppola",
+actors: "Al Pacino, Robert De Niro",
+genre: "Drama",
+year: "1994",
+quality: "very good",
+price: 5,
+user: User.first)
+
+Movie.create!(
+title: "Apocalypse Now",
+review: "A U.S. Army officer serving in Vietnam is tasked with assassinating a renegade Special Forces Colonel who sees himself as a god.",
+poster_url: "https://xl.movieposterdb.com/08_05/1979/78788/xl_78788_600da6a4.jpg",
+rating: 8.4,
+director: "Francis Ford Coppola",
+actors: "Martin Sheen, Marlon Brando",
+genre: "War",
+year: "1979",
+quality: "poor",
+price: 2,
+user: User.first)
+
+Movie.create!(
+title: "Terminator 2: Judgment Day",
+review: "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten year old son John from an even more advanced and powerful cyborg.",
+poster_url: "https://xl.movieposterdb.com/20_11/1991/103064/xl_103064_658fc830.jpg",
+rating: 8.6,
+director: "James Cameron",
+actors: "Arnold Schwarzenegger, Linda Hamilton",
+genre: "Science-Fiction",
+year: "1991",
+quality: "good",
+price: 4,
+user: User.first)
+
+Movie.create!(
+title: "Star Wars: Episode V - The Empire Strikes Back",
+review: "After the Empire overpowers the Rebel Alliance, Luke Skywalker begins his Jedi training with Yoda. At the same time, Darth Vader and bounty hunter Boba Fett pursue his friends across the galaxy.",
+poster_url: "https://xl.movieposterdb.com/12_03/1980/80684/xl_80684_47982fe2.jpg",
+rating: 8.7,
+director: "Irvin Kershner",
+actors: "Mark Hamill, Harrison Ford",
+genre: "Science-Fiction",
+year: "1980",
+quality: "average",
+price: 3,
+user: User.first)
+
+Movie.create!(
+title: "American History X",
+review: "Living a life marked by violence, neo-Nazi Derek finally goes to prison after killing two black youths. Upon his release, Derek vows to change; he hopes to prevent his brother, Danny, who idolizes Derek, from following in his footsteps.",
+poster_url: "https://xl.movieposterdb.com/05_07/1998/0120586/xl_38913_0120586_9e761856.jpg",
+rating: 8.5,
+director: "Tony Kaye",
+actors: "Edward Norton, Edward Furlong",
+genre: "Drama",
+year: "1998",
+quality: "very good",
+price: 5,
+user: User.first)
+
+Movie.create!(
+title: "Heat",
+review: "A group of high-end professional thieves start to feel the heat from the LAPD when they unknowingly leave a verbal clue at their latest heist.",
+poster_url: "https://xl.movieposterdb.com/05_03/1995/0113277/xl_10324_0113277_21d91b53.jpg",
+rating: 8.3,
+director: "Michael Mann",
+actors: "Al Pacino, Robert De Niro",
+genre: "Thriller",
+year: "1995",
+quality: "poor",
+price: 2,
+user: User.first)
+
+Movie.create!(
+title: "Jurassic Park",
+review: "An industrialist invites some experts to visit his theme park of cloned dinosaurs. After a power failure, the creatures run loose, putting everyone's lives, including his grandchildren's, in danger.",
+poster_url: "https://xl.movieposterdb.com/05_08/1993/0107290/xl_45298_0107290_be4e0db3.jpg",
+rating: 8.2,
+director: "Steven Spielberg",
+actors: "Sam Neill, Laura Dern",
+genre: "Science-Fiction",
+year: "1993",
+quality: "good",
+price: 4,
+user: User.first)
+
+Movie.create!(
+title: "Back to the Future",
+review: "Marty McFly, a 17-year-old high school student, is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
+poster_url: "https://xl.movieposterdb.com/24_07/1985/88763/xl_back-to-the-future-movie-poster_616b0733.jpg",
+rating: 8.5,
+director: "Robert Zemeckis",
+actors: "Michael J.Fox, Christopher Lloyd",
+genre: "Science-Fiction",
+year: "1985",
+quality: "average",
+price: 3,
+user: User.first)
+
+Movie.create!(
+title: "Forrest Gump",
+review: "The history of the United States from the 1950s to the '70s unfolds from the perspective of an Alabama man with an IQ of 75, who yearns to be reunited with his childhood sweetheart.",
+poster_url: "https://xl.movieposterdb.com/12_04/1994/109830/xl_109830_58524cd6.jpg",
+rating: 8.8,
+director: "Robert Zemeckis",
+actors: "Tom Hanks, Robin Wright",
+genre: "Drama",
+year: "1994",
+quality: "very good",
+price: 5,
+user: User.first)
+
+Movie.create!(
+title: "Saving Private Ryan",
+review: "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.",
+poster_url: "https://xl.movieposterdb.com/21_04/1998/120815/xl_120815_118206a4.jpg",
+rating: 8.6,
+director: "Steven Spielberg",
+actors: "Tom Hanks, Matt Damon",
+genre: "War",
+year: "1998",
+quality: "poor",
+price: 2,
+user: User.first)
+
+Movie.create!(
+title: "12 Angry Men",
+review: "The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.",
+poster_url: "https://xl.movieposterdb.com/07_11/1957/50083/xl_50083_c5ce989e.jpg",
+rating: 9.0,
+director: "Sidney Lumet",
+actors: "Henry Fonda, Lee J.Cobb",
+genre: "Drama",
+year: "1957",
+quality: "good",
+price: 4,
+user: User.first)
+
+Movie.create!(
+title: "Indiana Jones and the Last Crusade",
+review: "In 1938, after his father goes missing while pursuing the Holy Grail, Indiana Jones finds himself up against the Nazis again to stop them from obtaining its powers.",
+poster_url: "https://xl.movieposterdb.com/06_08/1989/0097576/xl_128757_0097576_903dcfd5.jpg",
+rating: 8.2,
+director: "Steven Spielberg",
+actors: "Harrison Ford, Sean Connery",
+genre: "Adventure",
+year: "1989",
+quality: "average",
+price: 3,
+user: User.first)
+
+Movie.create!(
+title: "Watchmen",
+review: "In a version of 1985 where superheroes exist, the murder of a colleague sends active vigilante Rorschach on the trail of a conspiracy that will change the course of history.",
+poster_url: "https://xl.movieposterdb.com/09_02/2009/409459/xl_409459_29f9c455.jpg",
+rating: 7.6,
+director: "Zack Snyder",
+actors: "Jackie Earle Haley, Patrick Wilson",
+genre: "Science-Fiction",
+year: "2009",
+quality: "very good",
+price: 5,
+user: User.first)
+
+Movie.create!(
+title: "Sin City",
+review: "An exploration of the dark and miserable Basin City and three of its residents, all of whom are caught up in violent corruption.",
+poster_url: "https://xl.movieposterdb.com/08_09/2005/401792/xl_401792_f03f7b88.jpg",
+rating: 8.0,
+director: "Robert Rodriguez",
+actors: "Mickey Rourke, Bruce Willis",
+genre: "Thriller",
+year: "2005",
+quality: "poor",
+price: 2,
+user: User.first)
+
+Movie.create!(
+title: "Se7en",
+review: "Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.",
+poster_url: "https://xl.movieposterdb.com/14_12/1995/114369/xl_114369_156764e9.jpg",
+rating: 8.6,
+director: "David Fincher",
+actors: "Brad Pitt, Morgan Freeman",
+genre: "Thriller",
+year: "1995",
+quality: "good",
+price: 4,
+user: User.first)
+
+Movie.create!(
+title: "Goodfellas",
+review: "The story of Henry Hill and his life in the mafia, covering his relationship with his wife Karen and his mob partners Jimmy Conway and Tommy DeVito.",
+poster_url: "https://xl.movieposterdb.com/24_07/1990/99685/xl_goodfellas-movie-poster_8d37cedd.jpg",
+rating: 8.7,
+director: "Martin Scorsese",
+actors: "Robert De Niro, Joe Pesci",
+genre: "Crime",
+year: "1990",
+quality: "average",
+price: 3,
+user: User.first)
+
+Movie.create!(
+title: "The Silence of the Lambs",
+review: "A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.",
+poster_url: "https://xl.movieposterdb.com/23_08/1991/102926/xl_the-silence-of-the-lambs-movie-poster_cf602623.jpg",
+rating: 8.6,
+director: "Jonathan Demme",
+actors: "Jodie Foster, Anthony Hopkins",
+genre: "War",
+year: "1991",
+quality: "very good",
+price: 5,
+user: User.first)
+
+Movie.create!(
+title: "Sorcerer",
+review: "Four unfortunate men from different parts of the globe agree to risk their lives transporting gallons of nitroglycerin across dangerous Latin American jungle.",
+poster_url: "https://xl.movieposterdb.com/14_04/1977/76740/xl_76740_a1b14862.jpg",
+rating: 7.7,
+director: "William Friedkin",
+actors: "Roy Scheider, Bruno Cremer",
+genre: "Thriller",
+year: "1977",
+quality: "poor",
+price: 2,
+user: User.first)
+
+Movie.create!(
+title: "Seven Samurai",
+review: "Farmers from a village exploited by bandits hire a veteran samurai for protection, and he gathers six other samurai to join him.",
+poster_url: "https://xl.movieposterdb.com/08_04/1954/47478/xl_47478_a851d195.jpg",
+rating: 8.6,
+director: "Akira Kurosawa",
+actors: "Toshirô Mifune, Takashi Shimura",
+genre: "Drama",
+year: "1954",
+quality: "good",
+price: 4,
+user: User.first)
 
 Booking.create([
   {
