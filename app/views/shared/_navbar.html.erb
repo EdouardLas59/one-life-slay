@@ -1,16 +1,27 @@
-<nav class="d-flex justify-content-between">
-              <div class="menu-icon">
-                  <i class="fa fa-bars fa-2x"></i>
-              </div>
-              <div class="logo">
-                  <%= link_to root_path do %><img class="logo-picture" src="../app/assets/images/vhs-icon.png" alt="Logo VHS"/><% end %>
-              </div>
-              <div class="menu">
-                  <ul>
-                    <li><%= link_to "Home", root_path %></li>
-                    <li><%= link_to "Renting out my VHS", new_movie_path %></li>
-                    <li><%= link_to dashboard_index_path do %><i class="fas fa-user"></i><% end %></li>
-                  </ul>
-              </div>
+
+
+  <nav class="d-flex justify-content-between align-items-center">
+  <div class="menu-icon">
+    <i class="fa fa-bars fa-2x"></i>
+  </div>
+
+  <div class="nav ul li">
+    <div class="menu">
+      <%= link_to root_path do %>
+        <img class="logo-picture" src="<%= image_path('icons8-vhs-100') %>" alt="Logo VHS"/>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="menu">
+    <ul>
+      <li><%= link_to "Renting out my VHS", new_movie_path %></li>
+      <li><%= link_to dashboard_index_path do %><i class="fas fa-user"></i><% end %></li>
+    </ul>
+  </div>
 </nav>
-<div class="place-for-nav"></div>
+
+<div class="hero-container">
+    <div class="environment"></div>
+    <h2 class="hero glitch layers" data-text="VHS Vault"><span>VHS Vault</span></h2>
+</div>

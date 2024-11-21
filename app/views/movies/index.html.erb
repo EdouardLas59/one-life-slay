@@ -1,31 +1,35 @@
 <div class="search-bar-container mt-5">
-      <form class="search-bar" action="/recherche" method="GET">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
-          <i class="fas fa-search"></i>
-        </button>
-      </form>
+      <%= form_with url: root_path, method: :get, class: "search-bar" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control mr-sm-2",
+            placeholder: "Type a keyword"
+        %>
+      <%= button_tag(type: 'submit') do %>
+      <i class='fas fa-search'></i>
+      <% end %>
+    <% end %>
 </div>
 
 <div class="filter-bar p-5">
-    <button class="filter-btn" data-category="Action">
-      <i class="fas fa-fist-raised"></i> Action
-    </button>
-    <button class="filter-btn" data-category="Fantasy">
-      <i class="fas fa-magic"></i> Fantasy
-    </button>
-    <button class="filter-btn" data-category="Horror">
-      <i class="fas fa-ghost"></i> Horror
-    </button>
-    <button class="filter-btn" data-category="Comedy">
-      <i class="fas fa-laugh"></i> Comedy
-    </button>
-    <button class="filter-btn" data-category="Sci-Fi">
-      <i class="fas fa-rocket"></i> Sci-Fi
-    </button>
-    <button class="filter-btn" data-category="Thriller">
-      <i class="fas fa-skull-crossbones"></i> Thriller
-    </button>
+    <%= link_to root_path(params: { genre: 'Action' }), class: "filter-btn" do %>
+      <p><i class="fas fa-fist-raised"></i>  Action</p>
+    <% end %>
+    <%= link_to root_path(params: { genre: 'Fantasy' }), class: "filter-btn" do %>
+      <p><i class="fas fa-magic"></i>  Fantasy</p>
+    <% end %>
+    <%= link_to root_path(params: { genre: 'Horror' }), class: "filter-btn" do %>
+      <p><i class="fas fa-ghost"></i>  Horror</p>
+    <% end %>
+    <%= link_to root_path(params: { genre: 'Comedy' }), class: "filter-btn" do %>
+      <p><i class="fas fa-laugh"></i>  Comedy</p>
+    <% end %>
+    <%= link_to root_path(params: { genre: 'Sci-Fi' }), class: "filter-btn" do %>
+      <p><i class="fas fa-rocket"></i>  Sci-Fi</p>
+    <% end %>
+    <%= link_to root_path(params: { genre: 'Thriller' }), class: "filter-btn" do %>
+      <p><i class="fas fa-skull-crossbones"></i>  Thriller</p>
+    <% end %>
 </div>
 
 <div class="container">
