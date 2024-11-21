@@ -1,4 +1,7 @@
-boody {
+
+body {
+  background-color: black;
+	color: #FF204E;
 	margin: 0;
 	padding: 0;
 	height: 100%;
@@ -66,14 +69,14 @@ boody {
 .movie-title {
 	display: inline-block;
 	text-align: center;
-	background-color: #00224D;
+	background-color: black;
 	color: #FF204E;
 	padding: 7px 7px;
 	border-radius: 7px;
 	font-size: 25px;
 }
 
-.year-genre { 
+.year-genre {
 	display: flex;
 	justify-content: space-between;
 }
@@ -83,13 +86,14 @@ boody {
 	justify-content: space-between;
 }
 
-.fa-star {
-	color:yellow;
+i {
+	color:#ffff00;
+
 	animation-name: rotation_rating;
 	animation-timing-function: ease-in-out;
 	animation-duration: 1.7s;
 	animation-iteration-count: 1;
-	  
+
 	@keyframes rotation_rating {
 		0% {
 		  transform: rotate(-180deg);
@@ -128,7 +132,7 @@ p {
 }
 
 strong {
-	color: #00224D;	
+	color: #00224D;
 }
 
 .button {
@@ -154,6 +158,7 @@ strong {
 	display: flex;
 	justify-content: center;
 }
+
 
 .movie-map {
 	background-color: #5D0E41;

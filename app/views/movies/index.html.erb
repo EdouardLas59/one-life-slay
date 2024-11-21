@@ -28,24 +28,32 @@
     </button>
 </div>
 
+<div class="container">
   <div class="movie-cards">
     <div class="movies-grid">
       <% @movies.each do |movie| %>
-        <div class="card-movie">
-          <div class="card-movie-image">
-            <%= image_tag movie.poster_url, class: 'img-poster' %>
-          </div>
+        <div class="card-movie-container">
+          <%= link_to movie_path(movie), class: 'card-movie-link' do %>
+            <div class="card-movie">
+              <div class="card-movie-image">
+              <%= image_tag movie.poster_url, class: 'img-poster' %>
+            </div>
 
-          <div class="movie-header-content">
-            <p class="movie-title"><%= movie.title %></p>
-            <p class="movie-rating"><%= movie.rating %> <i class="fa-solid fa-star" style="color: #FFD43B;"></i></p>
-          </div>
 
-          <div class="show-delete">
-          <%= link_to "See more", movie_path(movie),class: "btn btn-see-more" %>
-          </div>
+            <div class="movie-header-content">
+              <p class="movie-title"><%= movie.title %></p>
+              <%# <p class="movie-rating"><%= movie.rating <i class="fa-solid fa-star" style="color: #FFD43B;"></i></p> %>
+              <%# <p class="overflow-ellipsis"><%= movie.review</p> %>
+            </div>
+
+
+            <%# <div class="show-delete">
+            <%= link_to "See more", movie_path(movie),class: "btn btn-see-more" %>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+

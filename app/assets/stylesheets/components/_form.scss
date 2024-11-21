@@ -1,3 +1,16 @@
 .form-booking {
   color:black;
 }
+.form-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+#priceRange {
+  width: 150%;
+}
+
+.form-new-submit{
+  display: flex;
+  justify-content: center;
+}
