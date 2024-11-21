@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :movies, except: :index do
     resources :bookings, only: [:new, :create, :update, :comfirm]
   end
+  resources :bookings, only: [:destroy]
   # Defines the root path route ("/")
   # root "posts#index"
 end

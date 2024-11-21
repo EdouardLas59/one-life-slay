@@ -30,3 +30,13 @@
 .movie-detailsdash p {
   margin: 0.2rem 0;
 }
+.delete-linkdash {
+  color: red;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.delete-linkdash:hover {
+  color: darkred;
+}
