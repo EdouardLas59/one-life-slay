@@ -1,0 +1,73 @@
+.new-movie-container {
+	position: relative;
+	z-index: 10;
+	padding: 20px;
+	background: black;
+	border-radius: 10px;
+	max-width: 600px;
+	margin: 50px auto;
+	border-style: 12px solid #5D0E41;
+	box-shadow:
+    0 0 8px #fff,
+    inset 0 0 8px #fff,
+    0 0 16px #5D0E41,
+    inset 0 0 16px #5D0E41,
+    0 0 32px #FF204E,
+    inset 0 0 32px #5D0E41;
+	animation: flashing 1.4s infinite alternate;
+
+	@keyframes flashing {
+		0%, 18%, 21%, 32%, 35%, 39%, 42%, 100% {
+		  box-shadow:
+			0 0 8px #fff,
+			inset 0 0 8px #fff,
+			0 0 32px #5D0E41,
+			inset 0 0 32px #5D0E41,
+			0 0 64px #5D0E41,
+			inset 0 0 64px #5D0E41;
+		}
+		20%, 34%, 41% {        
+		  text-shadow: none;
+		  box-shadow: none;
+		}    
+	}
+}
+  
+.new-form-imput {
+	margin-bottom: 20px;
+  }
+  
+.h1creat {
+	font-family: 'Pacifico', cursive; 
+	font-size: 60px; 
+	font-weight: bold; 
+	text-transform: uppercase; 
+	color: #5D0E41; 
+	text-shadow:
+		2px 2px 4px #fff,
+		0 0 10px #5D0E41, 
+		0 0 20px #5D0E41;   
+	letter-spacing: 1px; 
+	text-align: center; 
+	padding: 20px 0;
+}
+
+.btn-newmovie {
+	padding: 12px 30px;
+	font-size: 16px;
+	font-weight: bold;
+	text-transform: uppercase;
+	border: 2px solid #5D0E41;
+	border-radius: 8px;
+	background: linear-gradient(45deg, purple, #5D0E41);
+	color: white;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 20px #5D0E41;
+}
+  
+.btn-newmovie:hover {
+	background: linear-gradient(45deg, purple, #5D0E41);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), 0 1px 40px purple, 0 0 15px #5D0E41;
+	transform: scale(1.1);
+  }
