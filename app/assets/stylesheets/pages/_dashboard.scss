@@ -8,8 +8,7 @@
 }
 .movie-listdash {
   display: flex;
-  flex-direction: column;
-  gap: 1rem; /* Espace entre les films */
+  gap: 1rem;
   list-style: none;
   padding: 0;
 }
@@ -18,7 +17,7 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  border-bottom: 1px solid #ccc; /* Optionnel : pour séparer visuellement les films */
+  border-bottom: 1px solid #ccc;
   padding-bottom: 1rem;
 }
 
