@@ -42,8 +42,17 @@ body {
 }
 
 
-.h1creat{
-  text-align: center;
-  color: white;
-  text-shadow: 5px 5px 5px black;
+.h1creat {
+  font-family: 'Pacifico', cursive; /* Police rétro */
+  font-size: 60px; /* Taille du texte */
+  font-weight: bold; /* Gras pour plus d'impact */
+  text-transform: uppercase; /* Majuscules */
+  color: #0dcaf0; /* Bleu lumineux clair */
+  text-shadow:
+      2px 2px 4px rgba(13, 202, 240, 0.9), /* Ombre nette et lumineuse */
+      0 0 10px rgba(13, 202, 240, 1),  /* Ombre plus marquée et lumineuse */
+      0 0 20px rgba(13, 202, 240, 1);    /* Ombre plus large et lumineuse */
+  letter-spacing: 1px; /* Espacement ajusté pour améliorer la lisibilité */
+  text-align: center; /* Centrer le texte */
+  padding: 20px 0; /* Espacement autour du titre */
 }
