@@ -1,7 +1,20 @@
 <div class="container-show">
 
-	<div class="movie-poster">
-		<%= image_tag @movie.poster_url, class:"poster" %>
+	<div class="vhs">
+	<div class="top"></div>
+	<div class="center">
+		<div class="tape a">
+		<div class="film">
+			<div class="circle"></div>
+		</div>      
+		</div>
+		<<%= image_tag @movie.poster_url, class:"label" %>
+		<div class="tape b">
+		<div class="film">
+			<div class="circle"></div>
+		</div>
+		</div>
+	</div>
 	</div>
 
 	<div class="infos">
@@ -12,7 +25,7 @@
 				<p><strong>Genre: </strong><%= @movie.genre %></p>
 			</div>
 			<div class="movie-crew">
-				<p><strong>Directed by: </strong> <%= @movie.director %></p>
+				<p class="crew"><strong>Directed by: </strong> <%= @movie.director %></p>
 				<p><strong>With: </strong> <%=  @movie.actors %></p>
 			</div>
 			<p class="rating"><strong>IMDB Rating: </strong><%= @movie.rating %> <i class="fa-solid fa-star"></i></p>
@@ -28,16 +41,16 @@
 			<p><em><%= @movie.user.email %>'s review:</em> <i class="fa-solid fa-quote-left quotation"></i> <%= @movie.review %></p>
 		</div>
 
+		<h3 class="movie-rent">
+			<span>RENT</span>
+			<span>THIS</span>
+			<span>MOVIE</span>
+			<div class="scroll-more">↓</div>
+		</h3>
+
 		<div>
 			<%= render "bookings/form", movie: @movie, booking: @booking %>
 		</div>
-	</div>
-
-	<div class="movie-map" style="width: 100%; height: 300px;"
-		data-controller="map"
-		data-map-marker-value="<%= @marker.to_json %>"
-		data-map-user-value=" <%= @marker_user.to_json%> "
-		data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 	</div>
 
 </div>
@@ -56,35 +69,3 @@
 		</div>
 	</div>
 </div>
-<script>
-  window.onload = function() {
-    var imgSrc = "https://images4.alphacoders.com/134/1340419.png"; // URL de l'image
-    var speed = 1; // Vitesse du défilement
-    var scale = 1; // Facteur de mise à l'échelle de l'image
-
-    // Sélectionner l'élément body pour l'arrière-plan animé
-    var bodyElement = document.body;
-    var x = 0; // Position de départ du défilement
-
-    // Fonction qui gère l'animation de l'image en fond
-    function animateBackground() {
-      // Mettre à jour la position du background
-      bodyElement.style.backgroundPositionX = x + 'px';
-
-      // Modifier la position pour créer l'effet de défilement
-      x -= speed;
-
-      // Si l'image a complètement défilé, recommencer
-      if (x <= -bodyElement.offsetWidth) {
-        x = 0;
-      }
-    }
-
-    // Appliquer l'image en fond et démarrer l'animation
-    bodyElement.style.backgroundImage = 'url(' + imgSrc + ')';
-    bodyElement.style.backgroundRepeat = 'repeat-x'; // Répéter l'image horizontalement
-    bodyElement.style.backgroundSize = "contain";
-    bodyElement.style.backgroundAttachment = 'fixed'; // L'image reste fixe lors du défilement de la page
-    setInterval(animateBackground, 20);
-  };
-</script>

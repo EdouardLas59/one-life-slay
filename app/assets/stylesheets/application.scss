@@ -25,33 +25,3 @@ body {
   padding: 0;
   height: 100%;
 }
-
-.new-movie-container {
-  position: relative;
-  z-index: 10; /* S'assure que le formulaire reste au-dessus de l'arrière-plan */
-  padding: 20px;
-  background: black;
-  border-radius: 10px;
-  max-width: 600px;
-  margin: 50px auto;
-}
-
-.new-form-imput {
-  margin-bottom: 20px;
-}
-
-
-.h1creat {
-  font-family: 'Pacifico', cursive; /* Police rétro */
-  font-size: 60px; /* Taille du texte */
-  font-weight: bold; /* Gras pour plus d'impact */
-  text-transform: uppercase; /* Majuscules */
-  color: #0dcaf0; /* Bleu lumineux clair */
-  text-shadow:
-      2px 2px 4px rgba(13, 202, 240, 0.9), /* Ombre nette et lumineuse */
-      0 0 10px rgba(13, 202, 240, 1),  /* Ombre plus marquée et lumineuse */
-      0 0 20px rgba(13, 202, 240, 1);    /* Ombre plus large et lumineuse */
-  letter-spacing: 1px; /* Espacement ajusté pour améliorer la lisibilité */
-  text-align: center; /* Centrer le texte */
-  padding: 20px 0; /* Espacement autour du titre */
-}

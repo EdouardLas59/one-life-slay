@@ -7,7 +7,7 @@
   flex-wrap: wrap;
 }
 
-.filter-bar button {
+.filter-btn {
   background-color: black;
   color: white;
   border: 1px solid white;
@@ -19,6 +19,14 @@
   gap: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.filter-btn p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .filter-bar button:hover {
@@ -26,7 +34,7 @@
 }
 
 .filter-bar button.active {
-  background-color: #007bff;
+  background-color: #ffff00;
 }
 
 .filter-bar button:focus {
@@ -35,4 +43,9 @@
 
 .filter-bar button i {
   font-size: 18px;
+}
+
+a:hover {
+  color: #777;
+  text-decoration: none;
 }
