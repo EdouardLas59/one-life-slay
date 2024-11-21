@@ -60,9 +60,8 @@
           <p><strong>Review:</strong> <%= booking.movie.review %></p>
           <p><strong>Rented From:</strong> <%= booking.date_start %> to <%= booking.date_end %></p>
         </div>
-        <%= link_to "delete", booking_path(movie.bookings.first), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove it"} %>
+        <%= link_to "delete", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove it"} %>
       </li>
     <% end %>
   </ul>
 </div>
-
