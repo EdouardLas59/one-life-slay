@@ -2,7 +2,13 @@ class MoviesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @movies = Movie.all
+    if params[:genre].present?
+      @movies = Movie.where(genre: params[:genre])
+    elsif params[:query].present?
+      @movies = Movie.where('title ILIKE ?', "%#{params[:query]}%")
+    else
+      @movies = Movie.all
+    end
   end
 
   def search
@@ -34,11 +40,9 @@ class MoviesController < ApplicationController
     @booking = Booking.new
   end
 
-
-
-private
+  private
 
   def movie_params
-  params.require(:movie).permit(:title, :poster_url, :director, :actors, :genre, :year, :rating, :quality, :price )
+    params.require(:movie).permit(:title, :poster_url, :director, :actors, :genre, :year, :rating, :quality, :price )
   end
 end
