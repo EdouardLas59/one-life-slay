@@ -46,25 +46,6 @@ body {
 }
 }
 
-.movie-poster {
-	margin-top: 25px;
-	margin-left: 10px;
-	margin-bottom: 25px;
-	border-radius: 5px;
-	border-style: solid;
-	border-width: 2px;
-	border-color: #FF204E;
-	height: 70vh;
-	width: 80%;
-}
-
-.poster {
-	object-fit:cover;
-	object-position: center;
-	height: 100%;
-	width: 100%;
-}
-
 .infos {
 	display: flex;
 	flex-direction: column;
@@ -107,7 +88,8 @@ body {
 .movie-title {
 	display: inline-block;
 	text-align: center;
-	color: #FF204E;
+	background-color: black;
+	color: #ffff00;
 	padding: 7px 7px;
 	border-radius: 7px;
 	font-size: 25px;
@@ -279,3 +261,145 @@ strong {
     -webkit-animation: bounce 3s cubic-     bezier(.37,0,.21,1.02) infinite,fonts 5s linear infinite;
     animation: bounce 3s cubic-bezier(.37,0,.21,1.02) infinite,fonts 5s linear infinite;
 }
+
+.vhs {
+	width:600px;
+	height:290px;
+	background:#222;
+	box-shadow:0 0 20px 5px #5D0E41;
+	margin:15em auto;
+	animation-name: vhs_zoom;
+	animation-timing-function: ease-in-out;
+	animation-duration: 1.7s;
+	animation-iteration-count: infinite;
+
+	@keyframes vhs_zoom {
+		0% {
+		  transform: scale(1) rotate(55deg);
+		}
+		50% {
+		  transform: scale(1.05) rotate(55deg);
+		}
+		100% {
+		  transform: scale(1) rotate(55deg);
+		}
+	}
+	
+	.top {
+	  border:5px solid #111;
+	  border-top:25px solid #111;
+	  border-bottom:0;
+	  height:40px;
+	  position:relative;
+	}
+	.top::after, .top::before {
+	  color:#555;
+	  position:absolute;
+	}
+	.top::before {
+	  content:"VHS";    
+	  border:1px solid #333;
+	  font-size:10px;
+	  top:-20px;
+	  right:10px;    
+	}
+	.top::after {
+	  content:"Insert this side into recorder 🠝 Do not touch the tape inside";
+	  font-size:12px;
+	  position:relative;
+	  top:-22px;
+	  text-align:center;
+	  display:block;
+	}
+	
+	.center {
+	  width:600px;
+	  height:150px;
+	  margin:20px auto;
+	  background:#292929;
+	  display:flex;
+	  justify-content:space-between;
+	  align-items:center;
+	  padding:10px;
+	  border-top-left-radius:50px 75px;
+	  border-bottom-left-radius:50px 75px;
+	  border-top-right-radius:50px 75px;
+	  border-bottom-right-radius:50px 75px;
+	}
+	
+	.tape {
+	  width:150px;
+	  height:150px;
+	  background:#666;
+	  overflow:hidden;
+	  
+	  &.a {
+		border-top-left-radius:50px 75px;
+		border-bottom-left-radius:50px 75px;      
+	  }
+	  &.b {
+		border-top-right-radius:50px 75px;
+		border-bottom-right-radius:50px 75px;
+	  }
+	}
+	
+	.circle {
+	  width:90px;
+	  height:90px;
+	  border:10px solid #666;
+	  border-radius:50%;
+	  background:#AAA;
+	  z-index:5;
+	  position:relative;
+	}
+	.film {
+	  width:250px;
+	  height:250px;
+	  background:#222;
+	  border-radius:50%;
+	  position:relative;
+	  top:-50px;
+	  display:flex;
+	  justify-content:center;
+	  align-items:center;
+	  transform-origin:50% 50%;
+	  animation:playing 2.5s linear infinite;
+	}
+	.tape.a .film { left:50px }
+	.tape.b .film { left:-150px }
+	
+	.film::after,
+	.film::before {
+	  content:" ";
+	  width:200px;
+	  height:25px;
+	  background:#111;
+	  position:absolute;
+	  z-index:0;
+	  top:108.5px;
+	  left:21px;
+	  border:4px solid #252525;
+	}
+	.film::after {
+	  transform-origin:50% 50%;
+	  transform:rotate(90deg);
+	}
+	
+	@keyframes playing {
+	  0% { transform:rotate(0) }
+	  100% { transform:rotate(360deg) }
+	}
+
+}
+
+.label {
+	object-fit: cover;
+	object-position: 0 80%;
+	height: 100%;
+	width: 100%;
+	border-radius:15px;
+	background:#000;
+	color:#e5c824;
+	line-height:120%;
+	letter-spacing:-3px;
+	}
