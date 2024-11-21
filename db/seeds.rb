@@ -107,7 +107,7 @@ rating: 9.0,
 director: "Francis Ford Coppola",
 actors: "Al Pacino, Robert De Niro",
 genre: "Drama",
-year: "1994",
+year: "1974",
 quality: "very good",
 price: 5,
 user: User.first)

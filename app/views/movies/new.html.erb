@@ -1,4 +1,4 @@
-<h1 class="h1creat" ><%= "New movie" %></h1>
+<h1 class="h1creat" ><%= "YOUR VHS" %></h1>
 
 <div class="new-movie-container">
   <%= simple_form_for @movie do |f| %>
@@ -10,14 +10,14 @@
       <%= f.input :genre %>
       <%= f.input :year %>
       <%= f.input :rating %>
-      <%= f.input :quality, collection: ['mint', 'standard', 'poor'], as: :select %>
+      <%= f.input :quality, collection: ['very good', 'good', 'average', 'poor'], as: :select %>
       <%= f.input :review %>
       <div class="form-price" >
       <%= f.input :price, as: :range, input_html: { min: 0, max: 20, value: @movie.price || 0, id: 'priceRange'} %>
       <span id="priceValue"><%= @movie.price || 0 %> €</span>
      </div>
      <div class="form-new-submit" >
-      <%= f.submit "newmovie", class: "btn-newmovie" %>
+      <%= f.submit "SUBMIT", class: "btn-newmovie" %>
       </div>
     </div>
   <% end %>
