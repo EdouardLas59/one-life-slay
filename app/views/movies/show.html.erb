@@ -1,4 +1,5 @@
 <div class="container-show">
+
 	<div class="show-body">
 		<div class="infos_and_vhs">
 			<div class="vhs">
@@ -52,9 +53,10 @@
 				<div class="scroll-more">↓</div>
 			</h3>
 
-			<div class="movie-map">
-				<%= render "bookings/form", movie: @movie, booking: @booking %>
-			</div>
+
+		<div>
+			<%= render "bookings/form", movie: @movie, disable_date: @disable_date, booking: @booking %>
+
 		</div>
 	</div>	
 </div>
