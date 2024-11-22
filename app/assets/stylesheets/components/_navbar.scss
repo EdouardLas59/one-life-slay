@@ -41,15 +41,16 @@ header {
 nav {
 
 
+
     display: flex;
     justify-content: space-between; /* Espacer le logo, texte, et menu */
     align-items: center; /* Centrer verticalement */
     width: 100%;
-    background: blue;
-    box-shadow: 0 5px 5 px green;
-    position: sticky;
-    top: 0px;
-    z-index: 1000;
+    position: sticky;  /* Fixer la navbar au scroll */
+    top: 0; /* Coller la navbar en haut */
+    z-index: 1000; /* Assurer que la navbar soit au-dessus des autres éléments */
+    background-color: #000; /* Couleur de fond de la navbar, tu peux l'ajuster */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre subtile pour séparer la navbar du contenu */
 
 
 }
