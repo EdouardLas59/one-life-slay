@@ -1,4 +1,7 @@
 
+
+
+
   <nav class="d-flex justify-content-between align-items-center">
   <div class="menu-icon">
     <i class="fa fa-bars fa-2x"></i>
@@ -14,10 +17,12 @@
 
   <div class="menu">
     <ul>
-      <li><%= link_to "Renting out my VHS", new_movie_path %></li>
+      <%= link_to new_movie_path, class: "filter-btn" do %>
+      <p> Rent my VHS </p>
+      <% end %>
       <li class="nav-item dropdown">
         <i
-          class="fas fa-user dropdown-toggle"
+          class="fa-regular fa-user dropdown-toggle"
           id="navbarDropdown"
           data-bs-toggle="dropdown"
           data-bs-haspopup="true"

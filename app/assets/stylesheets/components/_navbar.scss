@@ -33,7 +33,9 @@ header {
 }
 
 .logo-picture {
-  height: 100px;
+  max-height: 100px;
+  width: auto;
+  object-fit: contain;
 }
 
 nav {
@@ -48,7 +50,7 @@ nav {
 }
 
 nav ul {
-  line-height: 60px;
+  line-height: 16px;
   list-style: none;
   background: rgba(0, 0, 0, 0);
 /*   overflow: hidden; */
@@ -58,6 +60,7 @@ nav ul {
   margin: 0;
   padding-right: 10px;
   transition: 1s;
+  display: flex;
 }
 
 nav.black ul {
@@ -66,7 +69,8 @@ nav.black ul {
 
 nav ul li {
   display: inline-block;
-  padding: 16px 40px;;
+  padding: 16px 40px;
+
 }
 
 nav ul li a {
@@ -91,7 +95,20 @@ nav ul li a {
   color: #fff;
   display: none;
 }
-
+.nav-btn {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
 // .navbar-typography {
 //   display: flex;
 //   justify-content: center;
