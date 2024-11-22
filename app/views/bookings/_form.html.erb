@@ -1,6 +1,6 @@
 <div class="container-booking-form" >
                     <div class="infos-booking">
-  <H2><%= movie.price %> dollars a day <em>(<%= movie.quality %> VHS quality)</em></H2>
+  <H2><%= movie.price %> $/day <em>(<%= movie.quality %> VHS quality)</em></H2>
     <div class="form-booking" >
       <%= simple_form_for [@movie, @booking ], data: { controller: 'datepicker' } do |f| %>
         <%= f.hidden_field :disable_date, value: disable_date,  data: { datepicker_target: "disableDate" } %>
@@ -21,7 +21,7 @@
             <% end %>
       </div>
     <div class="p-form-total" >
-      <p>Total:</p>
+
     </div>
   </div>
 
