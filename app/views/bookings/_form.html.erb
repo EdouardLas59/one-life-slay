@@ -9,8 +9,8 @@
       <%= f.input :date_end,
             as: :string,
             input_html: { data: { datepicker_target: "endDate" } , id: 'date_end'} %>
-
-     <% f.input :pickup_place, as: :string  %>
+<div id="address-display">
+     <% f.input :pickup_place, input_html: { id: 'booking_pickup_place' } %></div>
 
         <%= f.submit %>
           <% end %>
@@ -22,5 +22,6 @@
   data-controller="map"
   data-map-marker-value="<%= @marker.to_json %>"
   data-map-user-value=" <%= @marker_user.to_json%> "
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
