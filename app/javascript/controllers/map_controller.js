@@ -24,6 +24,10 @@ export default class extends Controller {
 
 
     this.map.on('click', (event) => {
+
+
+      // console.log("click", event.lngLat)
+      // console.log("marker", this.markerValue[0])
       const lat = event.lngLat.lat
       const lng = event.lngLat.lng
 
@@ -33,33 +37,37 @@ export default class extends Controller {
       }
       this.#getAddressFromCoordinates(lat, lng)
     })
+
   }
 
-
-  #addMarkerToMap() {
-    new mapboxgl.Marker({color: "#FF204E"})
+    #addMarkerToMap() {
+      new mapboxgl.Marker({color: "#FF204E"})
       .setLngLat([this.userValue.lng, this.userValue.lat])
       .addTo(this.map)
 
 
-    this.markerValue.forEach(marker => {
-      new mapboxgl.Marker({color: "#5D0E41"})
-        .setLngLat([marker.lng, marker.lat])
-        .addTo(this.map)
-        
-    })
-  }
+      this.markerValue.forEach(marker => {
+        const popup = new mapboxgl.Popup({ offset: 25 })
+        // .setHTML(marker.info_window_html)
+        const mapMarker = new mapboxgl.Marker({ color: "#5D0E41" })
+          .setLngLat([marker.lng, marker.lat])
+          .setPopup(popup)
+          .addTo(this.map);
 
 
-  #fitMapToMarkers() {
-    const bounds = new mapboxgl.LngLatBounds()
+      });
+    }
 
-    this.markerValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
 
-    bounds.extend([this.userValue.lng, this.userValue.lat])
+    #fitMapToMarkers() {
+      const bounds = new mapboxgl.LngLatBounds()
 
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 35, duration: 0 })
-  }
+      this.markerValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
+
+      bounds.extend([this.userValue.lng, this.userValue.lat])
+
+      this.map.fitBounds(bounds, { padding: 70, maxZoom: 35, duration: 0 })
+    }
 
 
   async #getAddressFromCoordinates(lat, lng) {
@@ -84,7 +92,7 @@ export default class extends Controller {
 
   // Afficher l'adresse dans l'interface utilisateur
   #displayAddress(address) {
-    const addressField = document.getElementById("address-display") // Un div où afficher l'adresse
+    const addressField = document.getElementById("address-display")
     if (addressField) {
       addressField.textContent = address
     }

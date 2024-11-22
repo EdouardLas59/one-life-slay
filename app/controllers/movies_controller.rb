@@ -28,6 +28,7 @@ class MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
     @movie.user = current_user
     if @movie.save
+
     # redirect_to new_dashboard_path
     redirect_to dashboard_index_path
     else
@@ -38,10 +39,10 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     @booking = Booking.new
-    @marker = [{lat: 50.63665114038645, lng: 3.0260790988325503, info_window_html: render_to_string(partial: "info_window", locals: {info: "point relai 1"})
+    @marker = [{lat: 50.63665114038645, lng: 3.0260790988325503, info_window_html: render_to_string(partial: "info_window", locals: {marker:"address 1" })
   },
-    {lat: 50.63371842449306, lng: 3.005903172838499, info_window_html: render_to_string(partial: "info_window", locals: {info: "point relai 2"})},
-    { lat: 50.64008194209106, lng: 3.0188359669213267, info_window_html: render_to_string(partial: "info_window", locals: {info: "point relai 3"})}
+    {lat: 50.63371842449306, lng: 3.005903172838499, info_window_html: render_to_string(partial: "info_window", locals: {marker: "address 2"})},
+    { lat: 50.64008194209106, lng: 3.0188359669213267, info_window_html: render_to_string(partial: "info_window", locals: {marker: "address 3"})}
     ];
     @marker_user = {lat: current_user.latitude,lng: current_user.longitude}
   end
