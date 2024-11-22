@@ -1,5 +1,6 @@
 <div class="container-booking-form" >
 
+
   <div class="infos-booking">
     <h2><%= movie.price %> dollars a day <em>(<%= movie.quality %> VHS quality)</em></h2>
       <div class="form-booking" >
@@ -11,6 +12,8 @@
         <%= f.input :date_end,
               as: :string,
               input_html: { data: { datepicker_target: "endDate" } , id: 'date_end'} %>
+<div id="address-display">
+     <% f.input :pickup_place, input_html: { id: 'booking_pickup_place' } %></div>
 
       <% f.input :pickup_place, as: :string  %>
 
@@ -29,6 +32,8 @@
       data-map-user-value=" <%= @marker_user.to_json%> "
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+
   </div>
-  
+
+
 </div>
