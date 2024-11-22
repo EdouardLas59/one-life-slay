@@ -43,6 +43,11 @@ nav {
     justify-content: space-between; /* Espacer le logo, texte, et menu */
     align-items: center; /* Centrer verticalement */
     width: 100%;
+    background: blue;
+    box-shadow: 0 5px 5 px green;
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
 
 
 }
@@ -135,9 +140,10 @@ nav ul li a {
         margin-top: 16px;
   }
 
+
   nav ul {
         max-height: 0px;
-        background: #000;
+      background:#000;     
   }
 
   nav.black ul {
