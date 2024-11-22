@@ -9,7 +9,7 @@
       <%= f.input :actors %>
       <%= f.input :genre %>
       <%= f.input :year %>
-      <%= f.input :rating %>
+      <%= f.input :rating, collection: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], as: :select %>
 
       <%= f.input :quality, collection: ['very good', 'good', 'average', 'poor'], as: :select %>
 
@@ -23,5 +23,5 @@
       </div>
     </div>
   <% end %>
-  
+
 </div>
