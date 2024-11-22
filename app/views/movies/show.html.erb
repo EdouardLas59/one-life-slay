@@ -6,7 +6,7 @@
 		<div class="tape a">
 		<div class="film">
 			<div class="circle"></div>
-		</div>      
+		</div>
 		</div>
 		<<%= image_tag @movie.poster_url, class:"label" %>
 		<div class="tape b">
@@ -49,7 +49,7 @@
 		</h3>
 
 		<div>
-			<%= render "bookings/form", movie: @movie, booking: @booking %>
+			<%= render "bookings/form", movie: @movie, disable_date: @disable_date, booking: @booking %>
 		</div>
 	</div>
 

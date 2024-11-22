@@ -45,6 +45,14 @@ class MoviesController < ApplicationController
     { lat: 50.64008194209106, lng: 3.0188359669213267, info_window_html: render_to_string(partial: "info_window", locals: {marker: "address 3"})}
     ];
     @marker_user = {lat: current_user.latitude,lng: current_user.longitude}
+
+    dates = Booking.where(movie: params[:id])
+    @disable_date = dates.map do |date|
+      {
+            from: date.date_start,
+            to: date.date_end
+    }
+    end.to_json
   end
 
   private
