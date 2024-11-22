@@ -79,7 +79,6 @@
           <p><strong>Title:</strong> <%= booking.movie.title %></p>
           <p><strong>Review:</strong> <%= booking.movie.review %></p>
           <p><strong>Rented From:</strong> <%= booking.date_start %> to <%= booking.date_end %></p>
-          <%# <p><strong>Place to pick it up:</strong> <%= booking.pickup_place %> </p> %>
            <p class="rating"><strong>IMDB Rating: </strong><%= booking.movie.rating %> <i class="fa-solid fa-star"></i></p>
         </div>
         <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this booking?"} do %>
