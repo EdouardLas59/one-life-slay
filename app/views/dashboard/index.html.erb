@@ -44,7 +44,7 @@
   </ul>
 
   <div style="color: #ffff00; text-align: center; ">
-    <h2 id="rented-out-movies">Movies I own that I am renting</h2>
+    <h2 id="rented-out-movies">Movies I am renting</h2>
   </div>
   <ul class="dash-card">
     <% current_user.movies.each do |movie| %>
@@ -67,7 +67,7 @@
   </ul>
 
   <div style="color: #ffff00; text-align: center;">
-    <h2 id="rented-movies">Movies I have rented as a client</h2>
+    <h2 id="rented-movies">Movies I am borrowing</h2>
   </div>
   <ul class="dash-card">
     <% current_user.bookings.each do |booking| %>
