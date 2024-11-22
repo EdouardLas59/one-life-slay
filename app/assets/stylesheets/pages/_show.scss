@@ -39,10 +39,10 @@ body {
         0 0 64px #5D0E41,
         inset 0 0 64px #5D0E41;
     }
-    20%, 34%, 41% {        
+    20%, 34%, 41% {
       text-shadow: none;
       box-shadow: none;
-    }    
+    }
 }
 }
 
@@ -101,7 +101,7 @@ body {
 	color: blue;
 	padding: 7px 7px;
 	border-radius: 7px;
-	font-size: 25px;
+	font-size: 16px;
 	text-transform: uppercase;
 }
 
@@ -242,7 +242,7 @@ strong {
     position: relative;
     padding: 2rem 0 9rem;
     text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #5D0E41,0 0 35px #5D0E41,0 0 40px #5D0E41;
- 
+
  span {
     display: inline-block;
 }
@@ -315,11 +315,11 @@ strong {
 	  position:absolute;
 	}
 	.top::before {
-	  content:"VHS";    
+	  content:"VHS";
 	  border:1px solid #333;
 	  font-size:10px;
 	  top:-20px;
-	  right:10px;    
+	  right:10px;
 	}
 	.top::after {
 	  content:"Insert this side into recorder 🠝 Do not touch the tape inside";
@@ -329,7 +329,7 @@ strong {
 	  text-align:center;
 	  display:block;
 	}
-	
+
 	.center {
 	  width:600px;
 	  height:150px;
@@ -344,23 +344,23 @@ strong {
 	  border-top-right-radius:50px 75px;
 	  border-bottom-right-radius:50px 75px;
 	}
-	
+
 	.tape {
 	  width:150px;
 	  height:150px;
 	  background:#666;
 	  overflow:hidden;
-	  
+
 	  &.a {
 		border-top-left-radius:50px 75px;
-		border-bottom-left-radius:50px 75px;      
+		border-bottom-left-radius:50px 75px;
 	  }
 	  &.b {
 		border-top-right-radius:50px 75px;
 		border-bottom-right-radius:50px 75px;
 	  }
 	}
-	
+
 	.circle {
 	  width:90px;
 	  height:90px;
@@ -385,7 +385,7 @@ strong {
 	}
 	.tape.a .film { left:50px }
 	.tape.b .film { left:-150px }
-	
+
 	.film::after,
 	.film::before {
 	  content:" ";
@@ -402,7 +402,7 @@ strong {
 	  transform-origin:50% 50%;
 	  transform:rotate(90deg);
 	}
-	
+
 	@keyframes playing {
 	  0% { transform:rotate(0) }
 	  100% { transform:rotate(360deg) }
