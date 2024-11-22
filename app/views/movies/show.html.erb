@@ -8,7 +8,7 @@
 				<div class="tape a">
 				<div class="film">
 					<div class="circle"></div>
-				</div>      
+				</div>
 				</div>
 				<<%= image_tag @movie.poster_url, class:"label" %>
 				<div class="tape b">
@@ -21,7 +21,7 @@
 
 			<div class="infos">
 				<div class="movie-infos">
-					<h2 class="movie-title"><%= @movie.title %></h2>
+					<h2 class="movie-titled"><%= @movie.title %></h2>
 					<div class="year-genre">
 						<p><strong>Release year: </strong><%= @movie.year %></p>
 						<p><strong>Genre: </strong><%= @movie.genre %></p>
@@ -58,7 +58,7 @@
 			<%= render "bookings/form", movie: @movie, disable_date: @disable_date, booking: @booking %>
 
 		</div>
-	</div>	
+	</div>
 </div>
 </div>
 
