@@ -19,7 +19,15 @@ class MoviesController < ApplicationController
       @movies = []
     end
   end
-
+  def destroy
+    @movie = Movie.find(params[:id])
+    if @movie.user == current_user
+      @movie.destroy
+      redirect_to dashboard_index_path, notice: "#{@movie.title} has been successfully deleted."
+    else
+      redirect_to movies_path, alert: "You are not authorized to delete this movie."
+    end
+  end
   def new
     @movie = Movie.new()
   end

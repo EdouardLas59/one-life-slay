@@ -6,18 +6,12 @@
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
-.movie-listdash {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-}
+
 
 .movie-itemdash {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  border-bottom: 1px solid #ccc;
   padding-bottom: 1rem;
 }
 
@@ -29,26 +23,17 @@
 .movie-detailsdash p {
   margin: 0.2rem 0;
 }
-.delete-linkdash {
-  color: red;
-  font-size: 1.5rem;
-  cursor: pointer;
+
+
+
+div.filter-btn a {
+  color: inherit;
   text-decoration: none;
+  scroll-behavior: smooth;
 }
 
-.delete-linkdash:hover {
-  color: darkred;
-}
-
-.dashtitless {
-  background-color: black;
-  color: white;
-  border: 1px solid white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: background-color 0.3s;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  gap: 1rem;
 }

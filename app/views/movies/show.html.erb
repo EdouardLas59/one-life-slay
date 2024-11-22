@@ -1,69 +1,75 @@
 <div class="container-show">
 
-	<div class="vhs">
-	<div class="top"></div>
-	<div class="center">
-		<div class="tape a">
-		<div class="film">
-			<div class="circle"></div>
-		</div>
-		</div>
-		<<%= image_tag @movie.poster_url, class:"label" %>
-		<div class="tape b">
-		<div class="film">
-			<div class="circle"></div>
-		</div>
-		</div>
-	</div>
-	</div>
-
-	<div class="infos">
-		<div class="movie-infos">
-			<h2 class="movie-title"><%= @movie.title %></h2>
-			<div class="year-genre">
-				<p><strong>Release year: </strong><%= @movie.year %></p>
-				<p><strong>Genre: </strong><%= @movie.genre %></p>
+	<div class="show-body">
+		<div class="infos_and_vhs">
+			<div class="vhs">
+			<div class="top"></div>
+			<div class="center">
+				<div class="tape a">
+				<div class="film">
+					<div class="circle"></div>
+				</div>      
+				</div>
+				<<%= image_tag @movie.poster_url, class:"label" %>
+				<div class="tape b">
+				<div class="film">
+					<div class="circle"></div>
+				</div>
+				</div>
 			</div>
-			<div class="movie-crew">
-				<p class="crew"><strong>Directed by: </strong> <%= @movie.director %></p>
-				<p><strong>With: </strong> <%=  @movie.actors %></p>
 			</div>
-			<p class="rating"><strong>IMDB Rating: </strong><%= @movie.rating %> <i class="fa-solid fa-star"></i></p>
+
+			<div class="infos">
+				<div class="movie-infos">
+					<h2 class="movie-title"><%= @movie.title %></h2>
+					<div class="year-genre">
+						<p><strong>Release year: </strong><%= @movie.year %></p>
+						<p><strong>Genre: </strong><%= @movie.genre %></p>
+					</div>
+					<div class="movie-crew">
+						<p class="crew"><strong>Directed by: </strong> <%= @movie.director %></p>
+						<p><strong>With: </strong> <%=  @movie.actors %></p>
+					</div>
+					<p class="rating"><strong>IMDB Rating: </strong><%= @movie.rating %> <i class="fa-solid fa-star"></i></p>
+				</div>
+
+				<button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+					View trailer
+				</button>
+
+
+				<div class="owner-infos">
+					<p><strong>Owner: </strong> <%= @movie.user.email %></p>
+					<p><em><%= @movie.user.email %>'s review:</em> <i class="fa-solid fa-quote-left quotation"></i> <%= @movie.review %></p>
+				</div>
+			</div>
 		</div>
 
-		<button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-			View trailer
-		</button>
+		<div class="renting">
+			<h3 class="movie-rent">
+				<span>RENT</span>
+				<span>THIS</span>
+				<span>MOVIE</span>
+				<div class="scroll-more">↓</div>
+			</h3>
 
-
-		<div class="owner-infos">
-			<p><strong>Owner: </strong> <%= @movie.user.email %></p>
-			<p><em><%= @movie.user.email %>'s review:</em> <i class="fa-solid fa-quote-left quotation"></i> <%= @movie.review %></p>
-		</div>
-
-		<h3 class="movie-rent">
-			<span>RENT</span>
-			<span>THIS</span>
-			<span>MOVIE</span>
-			<div class="scroll-more">↓</div>
-		</h3>
 
 		<div>
 			<%= render "bookings/form", movie: @movie, disable_date: @disable_date, booking: @booking %>
-		</div>
-	</div>
 
+		</div>
+	</div>	
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" style="max-width: none">
-		<div class="modal-content w-100 h-100">
+		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
 
-					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/-Wp95itbiAA?si=Dq9l1EVpGqpBw-Uh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/S2C95K7Lgms?si=3Fz7MY_NZBH5yPEn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 			</div>
 		</div>
