@@ -1,17 +1,24 @@
 <div class="container">
   <div style="text-align: center; color: white">
-    <h1> My Profil </h1>
+    <h1> My Profile </h1>
   </div>
 
-    <div class="scroll-nav">
-    <div class="dashtitless">  <a href="#available-movies">Available for Rent</a> </div>
-     <div class="dashtitless"> <a href="#rented-out-movies">Movies I own that I am renting</a> </div>
-     <div class="dashtitless"> <a href="#rented-movies">Movies I have rented</a> </div>
+  <div class="scroll-nav filter-bar">
+    <div class="filter-btn">
+      <a href="#available-movies">Available for Rent</a>
     </div>
+    <div class="filter-btn">
+      <a href="#rented-out-movies">Movies I own that I am renting</a>
+    </div>
+    <div class="filter-btn">
+      <a href="#rented-movies">Movies I have rented</a>
+    </div>
+  </div>
 
-
-  <h2 id="available-movies">Movies I own and available for rent</h2>
-  <ul class="movie-listdash">
+  <div style="color: #ffff00; text-align: center;">
+    <h2 id="available-movies">Movies I own and available for rent</h2>
+  </div>
+  <ul class="dash-card">
     <% current_user.movies.each do |movie| %>
       <% if movie.bookings.size == 0 %>
         <li class="movie-itemdash">
@@ -22,34 +29,43 @@
             <p><strong>Title:</strong> <%= movie.title %></p>
             <p><strong>Year:</strong> <%= movie.year %></p>
             <p><strong>Genre:</strong> <%= movie.genre %></p>
+            <p class="rating"><strong>IMDB Rating: </strong><%= movie.rating %> <i class="fa-solid fa-star"></i></p>
           </div>
-          <%= link_to "delete", movie_path(movie), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title}"} %>
+          <%= link_to movie_path(movie), data: {turbo_method: :delete, turbo_confirm: "Delete #{movie.title}"} do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
         </li>
       <% end %>
     <% end %>
   </ul>
 
-
-  <h2 id="rented-out-movies">Movies I own that I am renting</h2>
-<ul class="movie-listdash">
-  <% current_user.movies.each do |movie| %>
-    <% if movie.bookings.size > 0 %>
-      <li class="movie-itemdash">
-        <div class="movie-posterdash">
-          <%= image_tag(movie.poster_url, alt: "#{movie.title} poster", class: "posterdash") if movie.poster_url.present? %>
-        </div>
-        <div class="movie-detailsdash">
-          <p><strong>Title:</strong> <%= movie.title %></p>
-          <p><strong>Rented From:</strong> <%= movie.bookings.first.date_start %> to <%= movie.bookings.first.date_end %></p>
-        </div>
-        <%= link_to "delete", booking_path(movie.bookings.first), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this booking?" } %>
-      </li>
+  <div style="color: #ffff00; text-align: center;">
+    <h2 id="rented-out-movies">Movies I own that I am renting</h2>
+  </div>
+  <ul class="dash-card">
+    <% current_user.movies.each do |movie| %>
+      <% if movie.bookings.size > 0 %>
+        <li class="movie-itemdash">
+          <div class="movie-posterdash">
+            <%= image_tag(movie.poster_url, alt: "#{movie.title} poster", class: "posterdash") if movie.poster_url.present? %>
+          </div>
+          <div class="movie-detailsdash">
+            <p><strong>Title:</strong> <%= movie.title %></p>
+            <p><strong>Rented From:</strong> <%= movie.bookings.first.date_start %> to <%= movie.bookings.first.date_end %></p>
+            <p class="rating"><strong>IMDB Rating: </strong><%= movie.rating %> <i class="fa-solid fa-star"></i></p>
+          </div>
+        </li>
+        <%= link_to booking_path(movie.bookings.first), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this booking?"} do %>
+          <i class="fa-solid fa-trash-can"></i>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
 
-  <h2 id="rented-movies">Movies I have rented as a client</h2>
-  <ul class="movie-listdash">
+  <div style="color: #ffff00; text-align: center;">
+    <h2 id="rented-movies">Movies I have rented as a client</h2>
+  </div>
+  <ul class="dash-card">
     <% current_user.bookings.each do |booking| %>
       <li class="movie-itemdash">
         <div class="movie-posterdash">
@@ -59,8 +75,11 @@
           <p><strong>Title:</strong> <%= booking.movie.title %></p>
           <p><strong>Review:</strong> <%= booking.movie.review %></p>
           <p><strong>Rented From:</strong> <%= booking.date_start %> to <%= booking.date_end %></p>
+          <p class="rating"><strong>IMDB Rating: </strong><%= booking.rating %> <i class="fa-solid fa-star"></i></p>
         </div>
-        <%= link_to "delete", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove it"} %>
+        <%= link_to booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this booking?"} do %>
+          <i class="fa-solid fa-trash-can"></i>
+        <% end %>
       </li>
     <% end %>
   </ul>
