@@ -13,15 +13,14 @@
             input_html: { data: { datepicker_target: "endDate" } , id: 'date_end'} %>
 
 <div id="address-display">
-     <% f.input :pickup_place, input_html: { id: 'booking_pickup_place' } %></div>
-
-      <% f.input :pickup_place, as: :string  %>
+     <% f.input :pickup_place, as: :string, input_html: { id: 'booking_pickup_place' } %></div>
 
           <%= f.submit %>
             <% end %>
       </div>
     <div class="p-form-total" >
-      <p>Total:</p>
+
+
     </div>
   </div>
 

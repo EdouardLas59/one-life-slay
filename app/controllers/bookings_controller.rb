@@ -16,10 +16,12 @@ def create
   @movie = Movie.find(params[:movie_id])
   @booking = Booking.new(booking_params)
   @booking.movie = @movie
+  @booking.pickup_
   @booking.user = current_user
   # remplacer par current user
   if @booking.save
     redirect_to dashboard_index_path
+    raise
   else
     render :new, status: :unprocessable_entity
   end
@@ -41,7 +43,7 @@ end
 private
 
 def booking_params
-  params.require(:booking).permit(:date_start, :date_end)
+  params.require(:booking).permit(:date_start, :date_end, :pickup_place)
   # ajouter total_price et pickup_place
 end
 
