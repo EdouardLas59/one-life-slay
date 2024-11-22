@@ -16,7 +16,7 @@ def create
   @movie = Movie.find(params[:movie_id])
   @booking = Booking.new(booking_params)
   @booking.movie = @movie
-  @booking.user = User.first
+  @booking.user = current_user
   # remplacer par current user
   if @booking.save
     redirect_to dashboard_index_path
