@@ -1,6 +1,6 @@
-<h1 class="h1creat" ><%= "YOUR VHS" %></h1>
+<h1 class="h1creat" data-controller="background"><%= "YOUR VHS" %></h1>
 
-<div class="new-movie-container" data-controller="autocomplete">
+<div class="new-movie-container" data-controller="price" >
   <%= simple_form_for @movie do |f| %>
     <div class="new-form-imput">
       <%= f.input :title %>
@@ -23,47 +23,4 @@
       </div>
     </div>
   <% end %>
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const priceRange = document.getElementById('priceRange');
-    const priceValue = document.getElementById('priceValue');
-
-    priceRange.addEventListener('input', function() {
-      priceValue.textContent = priceRange.value + ' €';
-    });
-  });
-</script>
 </div>
-
-<script>
-  window.onload = function() {
-    var imgSrc = "https://images4.alphacoders.com/134/1340419.png"; // URL de l'image
-    var speed = 1; // Vitesse du défilement
-    var scale = 1; // Facteur de mise à l'échelle de l'image
-
-    // Sélectionner l'élément body pour l'arrière-plan animé
-    var bodyElement = document.body;
-    var x = 0; // Position de départ du défilement
-
-    // Fonction qui gère l'animation de l'image en fond
-    function animateBackground() {
-      // Mettre à jour la position du background
-      bodyElement.style.backgroundPositionX = x + 'px';
-
-      // Modifier la position pour créer l'effet de défilement
-      x -= speed;
-
-      // Si l'image a complètement défilé, recommencer
-      if (x <= -bodyElement.offsetWidth) {
-        x = 0;
-      }
-    }
-
-    // Appliquer l'image en fond et démarrer l'animation
-    bodyElement.style.backgroundImage = 'url(' + imgSrc + ')';
-    bodyElement.style.backgroundRepeat = 'repeat-x'; // Répéter l'image horizontalement
-    bodyElement.style.backgroundSize = "contain";
-    bodyElement.style.backgroundAttachment = 'fixed'; // L'image reste fixe lors du défilement de la page
-    setInterval(animateBackground, 50);
-  };
-</script>
