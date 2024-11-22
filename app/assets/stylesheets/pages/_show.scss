@@ -23,7 +23,7 @@ body {
     inset 0 0 32px #5D0E41;
 	background-color: black;
 	color: #FF204E;
-	padding: 15px;
+	padding: 25px;
 	border-radius: 5px;
 	position:relative;
 	z-index: 10;
@@ -46,10 +46,20 @@ body {
 }
 }
 
+.show-body {
+	display: flex;
+	flex-direction: column;
+	width: 85%;
+	padding-top: 15px;
+}
+
+.infos_and_vhs {
+	display: flex;
+}
+
 .infos {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 }
 .movie-infos {
@@ -88,8 +98,7 @@ body {
 .movie-title {
 	display: inline-block;
 	text-align: center;
-	background-color: black;
-	color: #ffff00;
+	color: blue;
 	padding: 7px 7px;
 	border-radius: 7px;
 	font-size: 25px;
@@ -138,9 +147,16 @@ i {
 .container-booking-form {
 	background-color: black;
 	border-radius: 5px;
-	border-style: solid;
-	border-color: #FF204E;
+	border-style: 12px solid #FF204E;
+	box-shadow:
+    0 0 8px #fff,
+    inset 0 0 8px #fff,
+    0 0 16px #FF204E,
+    inset 0 0 16px #FF204E,
+    0 0 32px #FF204E,
+    inset 0 0 32px #FF204E;
 	color: #FF204E;
+	width: 85vw;
 }
 
 .form-booking {
@@ -152,7 +168,7 @@ p {
 }
 
 strong {
-	color: #5D0E41;
+	color: blue;
 	font-size: 22px;
 	font-weight: 700;
 }
@@ -185,16 +201,18 @@ strong {
 	justify-content: center;
 }
 
-
-.movie-map {
-	background-color: #5D0E41;
-	border-radius: 5px;
-	border-style: solid;
-	border-color: #FF204E;
-	color: #FF204E;
-	display: flex;
-	align-items: center;
+.modal-content {
+	height: 95vh;
+	width: 95wh;
 }
+
+.renting {
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 140px;
+}
+
 
 @keyframes bounce {
     0%,20%,50%,80%,to {
@@ -263,11 +281,11 @@ strong {
 }
 
 .vhs {
-	width:600px;
-	height:290px;
+	width:700px;
+	height:340px;
 	background:#222;
 	box-shadow:0 0 20px 5px #5D0E41;
-	margin:15em auto;
+	margin:10em auto;
 	animation-name: vhs_zoom;
 	animation-timing-function: ease-in-out;
 	animation-duration: 1.7s;
@@ -275,16 +293,16 @@ strong {
 
 	@keyframes vhs_zoom {
 		0% {
-		  transform: scale(1) rotate(55deg);
+		  transform: scale(0.8) rotate(55deg);
 		}
 		50% {
-		  transform: scale(1.05) rotate(55deg);
+		  transform: scale(0.85) rotate(55deg);
 		}
 		100% {
-		  transform: scale(1) rotate(55deg);
+		  transform: scale(0.8) rotate(55deg);
 		}
 	}
-	
+
 	.top {
 	  border:5px solid #111;
 	  border-top:25px solid #111;

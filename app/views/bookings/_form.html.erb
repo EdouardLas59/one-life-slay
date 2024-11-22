@@ -1,26 +1,34 @@
 <div class="container-booking-form" >
-  <H2><%= movie.price %> dollars a day (<%= movie.quality %> VHS quality)</H2>
-    <div class="form-booking" >
-      <%= simple_form_for [@movie, @booking ], data: { controller: 'datepicker' } do |f| %>
-        <%= f.input :date_start,
-            as: :string,
-            input_html: { data: { datepicker_target: "startDate" } } %>
 
-      <%= f.input :date_end,
-            as: :string,
-            input_html: { data: { datepicker_target: "endDate" } , id: 'date_end'} %>
+  <div class="infos-booking">
+    <h2><%= movie.price %> dollars a day <em>(<%= movie.quality %> VHS quality)</em></h2>
+      <div class="form-booking" >
+        <%= simple_form_for [@movie, @booking ], data: { controller: 'datepicker' } do |f| %>
+          <%= f.input :date_start,
+              as: :string,
+              input_html: { data: { datepicker_target: "startDate" } } %>
 
-     <% f.input :pickup_place, as: :string  %>
+        <%= f.input :date_end,
+              as: :string,
+              input_html: { data: { datepicker_target: "endDate" } , id: 'date_end'} %>
 
-        <%= f.submit %>
-          <% end %>
-    </div>
+      <% f.input :pickup_place, as: :string  %>
+
+          <%= f.submit %>
+            <% end %>
+      </div>
     <div class="p-form-total" >
-      <p>Total: <%= movie.price %></p>
+      <p>Total:</p>
     </div>
-    <div style="width: 75%; height: 300px;"
-  data-controller="map"
-  data-map-marker-value="<%= @marker.to_json %>"
-  data-map-user-value=" <%= @marker_user.to_json%> "
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+
+  <div class="map-booking">
+    <div style="width: 100%; height: 300px"
+      data-controller="map"
+      data-map-marker-value="<%= @marker.to_json %>"
+      data-map-user-value=" <%= @marker_user.to_json%> "
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+  
 </div>
